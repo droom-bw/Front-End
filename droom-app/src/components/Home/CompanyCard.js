@@ -1,7 +1,5 @@
 import React from 'react'
-import { Box, Flex, Heading, Text, Image, Badge} from "@chakra-ui/core";
-
-
+import { Box, Flex, Heading, Text, Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon} from "@chakra-ui/core";
 
 
 
@@ -20,27 +18,58 @@ const CompanyCard = (props) => {
       }
     };
 
-const property = {
-    imageUrl: "http://bit.ly/2Z4KKcF",
-    imageAlt: "Rear view of modern home with pool",
-    beds: 3,
-    baths: 2,
-    title: "Modern home in city center in the heart of historic Los Angeles",
-    formattedPrice: "$1,900.00",
-    reviewCount: 34,
-    rating: 4,
-  };
 
     return (
-    <Box maxW="sm" border="black" rounded="lg">
-         <Box> 
-            <Flex justifyContent='center'>
-                <Heading>{data.name}</Heading>
-            </Flex>  
-            <Flex wrap="wrap">
-                <Text>{data.description}</Text>
-            </Flex>
-         </Box>
+    <Box 
+        margin="2% auto"
+        width="50%" 
+        border="2px" 
+        borderRadius="md" 
+        borderColor="gray.200"
+        padding="3%"
+        >
+        <Flex direction="column" wrap='wrap' align='center'>        
+            <Heading>{data.name}</Heading>
+            <p>{data.description}</p>
+        </Flex>
+        <Accordion defaultIndex={[0]} allowMultiple>
+            <AccordionItem>
+                <AccordionHeader justifyContent="center">
+                    <Box>
+                        Hiring Company
+                    </Box>
+                    <AccordionIcon />
+                </AccordionHeader>
+                <AccordionPanel>{data.job.company}</AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeader justifyContent="center">
+                    <Box>
+                        Job Title
+                    </Box>
+                    <AccordionIcon />
+                </AccordionHeader>
+                <AccordionPanel>{data.job.title}</AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeader justifyContent="center">
+                    <Box>
+                        Salary
+                    </Box>
+                    <AccordionIcon />
+                </AccordionHeader>
+                <AccordionPanel>${data.job.salary}</AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeader justifyContent="center">
+                    <Box>
+                        Job Description
+                    </Box>
+                    <AccordionIcon />
+                </AccordionHeader>
+                <AccordionPanel><Flex wrap="wrap" justify="center"><Text>{data.job.description}</Text></Flex></AccordionPanel>
+            </AccordionItem>
+        </Accordion>
     </Box>
 );
 }
