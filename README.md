@@ -1,3 +1,22 @@
+## Design Elements: 
+
+### Colors:
+
+#50514F -- (Dark Gray) Font Color
+
+#247BA0 -- (Blue )Accent color
+
+#F2F2F2 -- "Anti-flash white" default background color
+
+### Fonts
+
+Primary Font: Roboto
+
+https://fonts.google.com/specimen/Roboto
+
+Secondary Font: [TBD]
+
+
 # Front-End
 
 ## Proposal
