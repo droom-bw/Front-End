@@ -5,6 +5,7 @@ import { Box, Flex, Heading, Text, Accordion, AccordionItem, AccordionHeader, Ac
 export default function SeekerCard(props) {
     console.log("props", props);
     return (
+        <ThemeProvider>
         <Box 
         margin="2% auto"
         width="50%" 
@@ -56,6 +57,7 @@ export default function SeekerCard(props) {
             </AccordionItem>
         </Accordion>
     </Box>
+</ThemeProvider>
   );
 };
 
