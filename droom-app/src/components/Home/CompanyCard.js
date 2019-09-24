@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Flex, Heading, Text, Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon} from "@chakra-ui/core";
-// import styled from 'styled-components';
+import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core";
 
 
 
