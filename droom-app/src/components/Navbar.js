@@ -5,7 +5,7 @@ import { Tag, TagIcon,Icon, TagLabel,Stack ,TagCloseButton } from "@chakra-ui/co
 import {Link as RouterLink} from "react-router-dom"
 import {Link} from "@chakra-ui/core"
 import styled from "styled-components";
-
+import { Image } from "@chakra-ui/core";
 
 export default function NavBar(){
 
@@ -15,12 +15,26 @@ display:flex;
 flex-direction:row;
 justify-content:flex-end;
 margin-right: 50px;
+height: 30px;
+justify-content: baseline;
 `
 
 return (
+    
+
+  
 <ContainNav>
+  <Image
+    size="100px"
+    objectFit="cover"
+    src="https://trello-attachments.s3.amazonaws.com/5d84f15f96af3e57f163ac23/5d8912e25b9b4611ab2e7d9f/96d61df1c18110078a6578764af62d3c/DroomLogo.png"
+    alt="Segun Adebayo"
+  />
+
 <Stack spacing={4} isInline>
   <Tag variantColor="cyan">
+ 
+  
     <TagLabel><Link as={ RouterLink } to="/"> Home </Link></TagLabel>
     <TagIcon icon="check" size="12px" />
   </Tag>
@@ -35,8 +49,20 @@ return (
   <TagLabel><Link as={ RouterLink } to="/SigninForm"> Sign in </Link></TagLabel>
     <TagIcon icon="add" />
   </Tag>
+
+  <Tag variantColor="purple">
+  <TagLabel><Link as={ RouterLink } to="/LogoutForm"> Log Out </Link></TagLabel>
+    <TagIcon icon="triangle-up" />
+  </Tag>
+
+  <Tag variantColor="red">
+  <TagLabel><Link as={ RouterLink } to="/Profile"> Profile </Link></TagLabel>
+    <TagIcon icon="view" />
+  </Tag>
+
 </Stack>
 </ContainNav>
+
 )
 }
 
