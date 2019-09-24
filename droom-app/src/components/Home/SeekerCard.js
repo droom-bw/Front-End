@@ -13,17 +13,10 @@ import {
 } from "@chakra-ui/core"
 
 export default function SeekerCard(props) {
-<<<<<<< HEAD
-    console.log("props", props);
-    return (
-        <ThemeProvider>
-        <Box 
-=======
   console.log("props", props)
   return (
     <ThemeProvider>
       <Box
->>>>>>> b2142eb54d6548b40f9ea91c62f0278033b10d22
         margin="2% auto"
         width="50%"
         border="2px"
