@@ -3,17 +3,21 @@ import "./App.scss"
 import { connect } from "react-redux"
 import { ThemeProvider } from "@chakra-ui/core"
 import NavBar from "./components/Navbar"
+
 import { Route } from "react-router-dom"
 
 import HomePage from "./components/Home/HomePage"
 import LoginComponent from "./components/Login"
 import Profile from "./components/Profile/Profile"
 
+
 function App() {
   return (
     <div className="App">
       <ThemeProvider>
         <NavBar />
+
+
       </ThemeProvider>
 
       <Route exact path="/" component={LoginComponent} />
