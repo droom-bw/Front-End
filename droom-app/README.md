@@ -1,68 +1,110 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Design Elements: 
 
-## Available Scripts
+### Colors:
 
-In the project directory, you can run:
+#50514F -- (Dark Gray) Font Color
 
-### `npm start`
+#247BA0 -- (Blue )Accent color
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#F2F2F2 -- "Anti-flash white" default background color
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Fonts
 
-### `npm test`
+Primary Font: Roboto
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+https://fonts.google.com/specimen/Roboto
 
-### `npm run build`
+Secondary Font: [TBD]
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+# Front-End
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Proposal
 
-### `npm run eject`
+### What problem does your app solve?
+Droom means dream in Dutch. This app helps you find your dream job by swiping right. Think Tinder + LinkedIn
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Be as specific as possible; how does your app solve the problem?
+It allows for a more casual job search, letting the seeker and the company both know if the other person is interested. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### What is the mission statement?
+We aim for the best job searching experience possible.
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### What features are required for your minimum viable product?
+- Onboarding processing for a job-seeker
+- Ability to easily create/setup a user profile (including name, occupation field, past experiences, interests, etc.)
+- Onboarding processing for companies
+- Ability to easily create / setup a company profile and current job listing
+- Ability to easily edit / update profiles and job listing
+- Ability to delete items
+- Ability for both user types to swipe right or left (or tap a check or x button) when they see a profile page or job posting/company page.
+- A page to view your matches.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### What features may you wish to put in a future release?
+Direct chat, messaging feature. Skill assessment. Upload resumes. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+### What do the top 3 similar apps do for their users?
+Show average salaries for different jobs, filter jobs by location, connections/recommendations.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Design - Planning
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### What design system will you use?
+Material Design
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### What will your user flow be?
+Seeker: Login => available listings => matched listings
+Company: Login => available applicants => matched listings 
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### What is the URL to your wireframes?
+https://balsamiq.cloud/snv27r3/p6r4r48
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Frameworks - Libraries
+
+### What 3rd party frameworks/libraries are you considering using?
+bootstrap/react bootstrap, formik, styled components, yup, Redux, bcrypt. 
+
+
+### Do APIs require you to contact its maintainer to gain access?
+Not really. 
+
+
+### Are you required to pay to use the API?
+no
+
+
+### Have you considered using Apple Frameworks? (MapKit, Healthkit, ARKit?)
+no
+
+
+## Target Audience
+
+### Who is your target audience? Be specific.
+Hiring managers, job seekers, younger audience, 3rd party recruiters, resent grads.
+
+
+### What feedback have you gotten from potential users?
+Make it simple to use. 
+
+
+### Have you validated the problem and your solution with your target audience? How?
+Asked each other. 
+
+
+## Research
+
+### Research thoroughly before writing a single line of code. Solidify the features of your app conceptually before implementation. Spend the weekend researching so you can hit the ground running on Monday.
+
+## Prototype Key Feature(s)
+
+### This is the “bread and butter” of the app, this is what makes your app yours. Calculate how long it takes to implement these features and triple the time estimated. That way you’ll have plenty of time to finish. It is preferred to drop features and spend more time working on your MVP features if needed.
+Will only take us 4 days to provide product. 
