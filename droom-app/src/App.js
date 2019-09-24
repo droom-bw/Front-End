@@ -11,6 +11,9 @@ import LoginComponent from "./components/Login"
 import Profile from "./components/Profile/Profile"
 import MatchList from "./components/Home/MatchesList"
 import DisplayJobs from "./components/Jobs/DisplayJobs";
+import SeekerProfile from "./components/Profile/SeekerProfile";
+import CompanyProfile from "./components/Profile/CompanyProfile";
+
 
 function App() {
   return (
@@ -18,7 +21,8 @@ function App() {
       <ThemeProvider>
         <NavBar />
         <DisplayJobs />
-
+        <SeekerProfile />
+        <CompanyProfile />
 
       </ThemeProvider>
 

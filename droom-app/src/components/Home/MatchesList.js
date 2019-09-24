@@ -89,8 +89,15 @@ export default function MatchList() {
 
   return (
     <Cont>
-      {seekers.map(people => {
-        return <StackEx name={people.name} />;
+      {companies.map(people => {
+        return <StackEx name={people.name} 
+                        description={people.job.description}
+                        job= {people.job.salary}
+                        title={people.job.title}
+                        salary
+
+                        
+        />;
       })}
     </Cont>
   );

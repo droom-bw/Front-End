@@ -4,6 +4,7 @@ import {
   FormLabel,
   FormErrorMessage,
   FormHelperText,
+  Input,
 } from "@chakra-ui/core";
 
 const SeekerProfile = () => {
@@ -12,10 +13,7 @@ const SeekerProfile = () => {
   <FormLabel htmlFor="name">Name</FormLabel>
   <Input type="name" id="name" />
   <FormLabel htmlFor="email">Email address</FormLabel>
-  <Input type="email" id="email" aria-describedby="email-helper-text" />
-  <FormHelperText id="email-helper-text">
-    We'll never share your email.
-  </FormHelperText>
+  <Input type="email" id="email" />
   <FormLabel htmlFor="experience">Experience</FormLabel>
   <Input type="experience" id="experience" />
 </FormControl>

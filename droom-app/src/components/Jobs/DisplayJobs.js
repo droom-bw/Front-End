@@ -1,8 +1,10 @@
 import React from 'react';
 import JobCard from "./JobCard";
 
-export const DisplayJobs = () => {
-    const fakeJobs = [{name: "Devin"}]
+//title, role, salary, description
+
+const DisplayJobs = () => {
+    const fakeJobs = [{title: "Devin", role:"backend", salary:"50,000",description:"lalalalalalalallalal"}]
 
     return(
         <div>
@@ -12,3 +14,5 @@ export const DisplayJobs = () => {
         </div>
     )
 }
+
+export default DisplayJobs;
