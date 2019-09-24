@@ -35,9 +35,8 @@ export default function NavBar() {
       <Stack spacing={4} isInline>
         <Tag variantColor="cyan">
           <TagLabel>
-            <Link as={RouterLink} to="/">
-              {" "}
-              Home{" "}
+            <Link as={RouterLink} to="/home">
+              Home
             </Link>
           </TagLabel>
           <TagIcon icon="check" size="12px" />
@@ -47,8 +46,7 @@ export default function NavBar() {
         <Tag variantColor="teal">
           <TagLabel>
             <Link as={RouterLink} to="/login">
-              {" "}
-              Log In{" "}
+              Log In
             </Link>
           </TagLabel>
           <TagIcon icon="triangle-down" />
@@ -57,8 +55,7 @@ export default function NavBar() {
         <Tag variantColor="red">
           <TagLabel>
             <Link as={RouterLink} to="/profile">
-              {" "}
-              Profile{" "}
+              Profile
             </Link>
           </TagLabel>
           <TagIcon icon="view" />
