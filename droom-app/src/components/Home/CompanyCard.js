@@ -1,35 +1,8 @@
 import React from 'react'
 import { Box, Flex, Heading, Text, Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon} from "@chakra-ui/core";
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 
-// const Container = styled.div`
-//     display:flex;
-//     flex-wrap: wrap;
-//     justify-content:center;
-//     border: 1px solid black;
-//     width:30%;
-//     margin:0 auto;
-//     align-content: center;
-//     white-space:pre-line;
-// `;
-
-// const StyledH1 = styled.h1`
-//     width:100%;
-// `;
-
-// const StyleP = styled.p`
-//     width:100%;
-//     flex-wrap:wrap;
-//     word-wrap:break-word;
-
-// `;
-
-// const StyledRow = styled.div`
-//     flex-wrap:wrap;
-//     width:100%;
-
-// `;
 
 
 const CompanyCard = (props) => {
@@ -97,6 +70,43 @@ const CompanyCard = (props) => {
 );
 }
 export default CompanyCard
+
+
+
+
+
+
+
+
+
+
+    // const Container = styled.div`
+    //     display:flex;
+    //     flex-wrap: wrap;
+    //     justify-content:center;
+    //     border: 1px solid black;
+    //     width:30%;
+    //     margin:0 auto;
+    //     align-content: center;
+    //     white-space:pre-line;
+    // `;
+
+    // const StyledH1 = styled.h1`
+    //     width:100%;
+    // `;
+
+    // const StyleP = styled.p`
+    //     width:100%;
+    //     flex-wrap:wrap;
+    //     word-wrap:break-word;
+
+    // `;
+
+    // const StyledRow = styled.div`
+    //     flex-wrap:wrap;
+    //     width:100%;
+
+    // `;
 
 
 
