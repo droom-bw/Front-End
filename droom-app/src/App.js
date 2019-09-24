@@ -10,12 +10,14 @@ import HomePage from "./components/Home/HomePage"
 import LoginComponent from "./components/Login"
 import Profile from "./components/Profile/Profile"
 import MatchList from "./components/Home/MatchesList"
+import DisplayJobs from "./components/Jobs/DisplayJobs";
 
 function App() {
   return (
     <div className="App">
       <ThemeProvider>
         <NavBar />
+        <DisplayJobs />
 
 
       </ThemeProvider>
