@@ -1,24 +1,28 @@
-import React from "react";
-import { withFormik, Form, Field } from "formik";
-import { Link } from "react-router-dom";
-import * as Yup from "yup";
+import React from "react"
+import { withFormik, Form, Field } from "formik"
+import { Link } from "react-router-dom"
+import * as Yup from "yup"
 
 // import { connect } from "react-redux";
 // import { doSignIn } from "../util/actions/authActions";
 
-
-function LoginForm({ values, errors, touched, isSubmitting }) {
+function RegisterForm({ values, errors, touched, isSubmitting }) {
   return (
-    <Form className="login">
-      <h3>Please Log In</h3>
+    <Form className="Register">
+      <h3>Register</h3>
 
       <div className="username field">
         <label>Username</label>
         <Field
-          style={(errors.username && touched.username) ? { border: "1px solid red" } : null} 
-          type="username" 
-          name="username" 
-          placeholder="Username" />
+          style={
+            errors.username && touched.username
+              ? { border: "1px solid red" }
+              : null
+          }
+          type="username"
+          name="username"
+          placeholder="Username"
+        />
         {touched.username && errors.username && (
           <p className="error">{errors.username}</p>
         )}
@@ -27,7 +31,11 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
       <div className="password field">
         <label>Password</label>
         <Field
-          style={(errors.password && touched.password) ? { border: "1px solid red" } : null}
+          style={
+            errors.password && touched.password
+              ? { border: "1px solid red" }
+              : null
+          }
           type="password"
           name="password"
           placeholder="Password"
@@ -37,21 +45,26 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
         )}
       </div>
 
-      <button className="positive" color="green" type="submit" disabled={isSubmitting}>
+      <button
+        className="positive"
+        color="green"
+        type="submit"
+        disabled={isSubmitting}
+      >
         Submit
       </button>
 
-      <Link to="/login">ALready signed up? Click here to login</Link>
+      <Link to="/login">Already signed up? Click here to Login</Link>
     </Form>
-  );
+  )
 }
 
-const LoginComponent = withFormik({
+const RegisterComponent = withFormik({
   mapPropsToValues({ username, password }) {
     return {
       username: username || "",
       password: password || ""
-    };
+    }
   },
   validationSchema: Yup.object().shape({
     username: Yup.string()
@@ -66,9 +79,6 @@ const LoginComponent = withFormik({
     // formikBag.props.doSignIn(values);
     // formikBag.props.history.push("/profile");
   }
-})(LoginForm);
+})(RegisterForm)
 
-// export default connect(
-//   null,
-//   { doSignIn }
-// )(LoginComponent);
+export default RegisterComponent

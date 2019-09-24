@@ -6,6 +6,10 @@ import NavBar from "./components/Navbar"
 import { Route, Link } from "react-router-dom"
 import SideBar from "./components/Sidebar"
 
+import HomePage from "./components/Home/HomePage"
+import LoginComponent from "./components/Login"
+import Profile from "./components/Login"
+
 function App() {
   return (
     <div className="App">
@@ -14,11 +18,9 @@ function App() {
         <SideBar />
         <CompanyCard />
       </ThemeProvider>
-      {/* <Route exact path="/" component={HomePage} /> */}
-      {/* <Route exact path="/Login" component={LoginForm} /> */}
-      {/* <Route exact path="/Signin" component={SignIn} /> */}
-      {/* <Route exact path="/Profile" component={ProfileForm} /> */}
-      {/* <Route exact path="/Signout" component={Signout} /> */}
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/login" component={LoginComponent} />
+      <Route exact path="/profile" component={Profile} />
     </div>
   )
 }
