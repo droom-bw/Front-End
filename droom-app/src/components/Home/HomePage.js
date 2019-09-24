@@ -1,10 +1,19 @@
 import React from "react"
-import RegisterComponent from "../Register"
+import CompanyCard from "./CompanyCard"
+import { ThemeProvider } from "@chakra-ui/core"
+import MatchButton from "./MatchButton"
+import DenyButton from "./DenyButton"
+
+import { companies } from "../../data"
 
 export default function HomePage() {
   return (
     <div className="HomePage">
-      <RegisterComponent />
+      <ThemeProvider>
+        <CompanyCard data={companies[0]} />
+      </ThemeProvider>
+      <MatchButton />
+      <DenyButton />
     </div>
   )
 }

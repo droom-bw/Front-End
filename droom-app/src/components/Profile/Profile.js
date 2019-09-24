@@ -2,7 +2,7 @@ import React from "react"
 import CompanyProfile from "./CompanyProfile"
 import SeekerProfile from "./SeekerProfile"
 
-export default function Profile() {
+const Profile = () => {
   return (
     <div className="Profile">
       <CompanyProfile />
@@ -10,3 +10,5 @@ export default function Profile() {
     </div>
   )
 }
+
+export default Profile
