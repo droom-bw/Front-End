@@ -6,7 +6,7 @@ import * as Yup from "yup";
 // import { doSignIn } from "../util/actions/authActions";
 
 
-function LoginForm({ values, errors, touched, isSubmitting }) {
+export default function LoginForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form className="login">
       <h3>Please Log In</h3>
