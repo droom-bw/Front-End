@@ -5,7 +5,7 @@ import SeekerProfile from "./SeekerProfile"
 const Profile = () => {
   return (
     <div className="Profile">
-      {/* <CompanyProfile /> */}
+      <CompanyProfile />
       <SeekerProfile />
     </div>
   )
