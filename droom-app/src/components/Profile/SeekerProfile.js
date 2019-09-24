@@ -1,28 +1,26 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import SeekerCard from "../Home/SeekerCard"
+import React from "react";
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+} from "@chakra-ui/core";
 
-export default function SeekerProfile() {
-  const [seeker, setSeeker] = useState([])
-
-  useEffect(() => {
-    axios
-      .get("https://rickandmortyapi.com/api/character/")
-      .then(res => {
-        const seekerData = res.data.results
-        console.log("this is the data", seekerData)
-        setSeeker(seekerData)
-      })
-      .catch(err => {
-        console.log("This is an error", err)
-      })
-  }, [])
-
+const SeekerProfile = () => {
   return (
-    <div>
-      {seeker.map(item => {
-        return <SeekerCard key={item.name} item={item} />
-      })}
-    </div>
-  )
+<FormControl>
+  <FormLabel htmlFor="name">Name</FormLabel>
+  <Input type="name" id="name" />
+  <FormLabel htmlFor="email">Email address</FormLabel>
+  <Input type="email" id="email" aria-describedby="email-helper-text" />
+  <FormHelperText id="email-helper-text">
+    We'll never share your email.
+  </FormHelperText>
+  <FormLabel htmlFor="experience">Experience</FormLabel>
+  <Input type="experience" id="experience" />
+</FormControl>
+  );
 }
+
+export default SeekerProfile
+

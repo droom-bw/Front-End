@@ -19,7 +19,7 @@ function Feature({ title, desc, ...rest }) {
       <Stack isInline spacing={8} align="center">
                 
         <Feature
-          title={"Matches"}
+          title={"New Match !"}
         
           desc= {props.name}
 

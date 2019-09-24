@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Stack, Box, Heading, Text } from "@chakra-ui/core";
-import StackEx from "../SideBar";
+import StackEx from "../Sidebar";
 
 const companies = [
   {
