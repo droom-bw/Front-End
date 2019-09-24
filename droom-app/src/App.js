@@ -4,18 +4,19 @@ import CompanyCard from "../src/components/Home/CompanyCard"
 import { ThemeProvider } from "@chakra-ui/core"
 import NavBar from "./components/Navbar"
 import { Route, Link } from "react-router-dom"
-import SideBar from "./components/Sidebar"
+// import StackEx from "./components/SideBar"
 
 import HomePage from "./components/Home/HomePage"
 import LoginComponent from "./components/Login"
 import Profile from "./components/Login"
+import MatchList from "./components/Home/MatchesList"
 
 function App() {
   return (
     <div className="App">
       <ThemeProvider>
         <NavBar />
-        <SideBar />
+        <MatchList/>
         <CompanyCard />
       </ThemeProvider>
       <Route exact path="/" component={HomePage} />
