@@ -7,7 +7,8 @@ import DenyButton from "./DenyButton"
 import { companies } from "../../data"
 
 export default function HomePage() {
-  const fakeState = {isSeeker: false, isCompany: false};
+  const fakeState = {isSeeker: false, isCompany: true};
+  // console.log(fakeState);
   
   const companies = [
     {
@@ -82,16 +83,29 @@ export default function HomePage() {
     }
   ];
 
-  //Based on state, render map either seekers or companies etc
-  return (
+
+   if (fakeState.isSeeker){
+    return (
+      <div className="HomePage">
+        <ThemeProvider>
+          <CompanyCard data={companies[0]} />
+        </ThemeProvider>
+        <MatchButton />
+        <DenyButton />
+      </div>
+    )
+  } else if (fakeState.isCompany) {
     <div className="HomePage">
-      <ThemeProvider>
-        <CompanyCard data={companies[0]} />
-      </ThemeProvider>
-      <MatchButton />
-      <DenyButton />
-    </div>
-  )
+        <ThemeProvider>
+          {/* <CompanyCard data={companies[0]} /> */}
+          <SeekerCard />
+        </ThemeProvider>
+        <MatchButton />
+        <DenyButton />
+      </div>
+  }
+  //Based on state, render map either seekers or companies etc
+  
 }
 
 

@@ -94,7 +94,7 @@ export default function MatchList() {
                         description={people.job.description}
                         job= {people.job.salary}
                         title={people.job.title}
-                        salary
+                        salary={people.job.salary}
 
                         
         />;

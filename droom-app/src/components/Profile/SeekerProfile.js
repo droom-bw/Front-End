@@ -12,7 +12,7 @@ const SeekerProfile = () => {
 <FormControl>
   <FormLabel htmlFor="name">Name</FormLabel>
   <Input type="name" id="name" />
-  <FormLabel htmlFor="email">Email address</FormLabel>
+  <FormLabel htmlFor="email">Email Address</FormLabel>
   <Input type="email" id="email" />
   <FormLabel htmlFor="experience">Experience</FormLabel>
   <Input type="experience" id="experience" />
