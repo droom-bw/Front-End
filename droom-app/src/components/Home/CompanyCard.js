@@ -33,7 +33,9 @@ import styled from 'styled-components';
 
 
 const CompanyCard = (props) => {
-    const data = {
+    
+    
+    const data = {
       id: 0,
       name: 'Lambda School',
       email: 'lambda@email.com',
