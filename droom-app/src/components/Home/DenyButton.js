@@ -1,7 +1,7 @@
 import React from "react"
 import { IconButton, ThemeProvider } from "@chakra-ui/core"
 
-const MatchButton = () => {
+const DenyButton = () => {
   return (
     <ThemeProvider>
       <IconButton icon="close" />
@@ -9,4 +9,4 @@ const MatchButton = () => {
   )
 }
 
-export default MatchButton
+export default DenyButton
