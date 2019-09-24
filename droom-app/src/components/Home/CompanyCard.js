@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Flex, Heading, Text, Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon} from "@chakra-ui/core";
+import { Box, Flex, Heading, Text, Accordion, AccordionItem, AccordionHeader, AccordionPanel, AccordionIcon, ThemeProvider} from "@chakra-ui/core";
 import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core";
 
 
@@ -24,7 +24,7 @@ const CompanyCard = (props) => {
 
 
     return (
-
+            <ThemeProvider>
                 <Box 
                 margin="2% auto"
                 width="50%" 
@@ -67,6 +67,7 @@ const CompanyCard = (props) => {
                     </AccordionItem>
                 </Accordion>
             </Box>
+        </ThemeProvider>
 );
 }
 export default CompanyCard
