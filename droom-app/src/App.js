@@ -45,7 +45,6 @@ function App() {
       <Route exact path="/jobs" component={DisplayJobs} />
       <Route exact path="/registerSeeker" component={RegisterSeeker} />
       <Route exact path="/registerCompany" component={RegisterCompany} />
-
     </div>
     </ThemeProvider>
 

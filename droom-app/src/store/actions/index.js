@@ -36,7 +36,7 @@ export const login = (creds, ownProps) => dispatch => {
     
     axiosWithAuth().post("/companies/login", creds).then(res => {
     console.log(res)
-    dispatch({type: LOGIN_SUCCESS, payload: res.data.company})
+    dispatch({type: LOGIN_SUCCESS, payload: res.data.response})
     localStorage.setItem("token", res.data.token)
     ownProps.history.push("/home")
   }).catch(err => {

@@ -15,8 +15,6 @@ import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core"
 
 const CompanyCard = ({data}) => {
 
-  console.log(data);
-  console.log(data.data);
   return (
       <Box
         margin="2% auto"
@@ -25,6 +23,7 @@ const CompanyCard = ({data}) => {
         borderRadius="md"
         borderColor="gray.200"
         padding="3%"
+        backgroundColor="gray.200"
       >
         <Flex direction="column" wrap="wrap" align="center">
           <Heading size="lg" whiteSpace="pre-line" wordBreak="break-word">

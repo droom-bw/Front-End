@@ -22,10 +22,18 @@ const HomePage = (props) => {
       })
     .catch(error => console.log(error))
   }, [])
+
+  const buttonHandler = () => {
+    //move item from front of items to the end
+    console.log(items);
+    const firstItem = items[0];
+    setItems([...items.slice(1), firstItem])
+  }
   
   return(
       
     <div className="HomePage">
+      <button onClick={buttonHandler}>test</button>
         {props.isLoading && <p>Loading...</p>}
         {!props.user.seeker ?
           ( 
@@ -35,8 +43,8 @@ const HomePage = (props) => {
                   <CompanyCard data={companies[0]} />
                 </Flex>
                 <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
-                  <MatchButton />
-                  <DenyButton />
+                  <MatchButton buttonHandler={buttonHandler}></MatchButton>
+                  <DenyButton buttonHandler={buttonHandler}></DenyButton>
                 </Flex>
             </Flex>
             </ThemeProvider>
@@ -48,8 +56,8 @@ const HomePage = (props) => {
                       <SeekerCard data={seekers[0]} />      
                   </Flex>
                   <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
-                    <MatchButton />
-                    <DenyButton />
+                  <MatchButton buttonHandler={buttonHandler}/>
+                  <DenyButton buttonHandler={buttonHandler}/>
                   </Flex>
               </Flex>
               </ThemeProvider>

@@ -1,11 +1,9 @@
 import React from "react"
 import { IconButton, ThemeProvider } from "@chakra-ui/core"
 
-const DenyButton = () => {
+const DenyButton = props => {
   return (
-    
-      <IconButton icon="close" />
-   
+    <IconButton onClick={props.buttonHandler} icon="close" />
   )
 }
 

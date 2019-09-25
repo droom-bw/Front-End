@@ -5,12 +5,8 @@ import { connect } from "react-redux"
 import { addMatch } from "../../store/actions"
 
 const MatchButton = props => {
-  const clickHandler = event => {}
-
   return (
-    <ThemeProvider>
-      <IconButton onClick={clickHandler} icon="check" />
-    </ThemeProvider>
+    <IconButton onClick={props.buttonHandler} icon="check" />
   )
 }
 

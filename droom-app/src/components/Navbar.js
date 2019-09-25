@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux"
 import {
   Tag,
   TagIcon,
@@ -22,7 +23,7 @@ import { Link } from "@chakra-ui/core";
 import styled from "styled-components";
 import { Image } from "@chakra-ui/core";
 
-export default function NavBar() {
+function NavBar(props) {
   const ContainNav = styled.div`
     display: flex;
     flex-direction: row;
@@ -92,3 +93,11 @@ export default function NavBar() {
 import {Link} from "@chakra-ui/core"
  then use it like this
  <Link as={ RouterLink } to="/home"> Home </Link> */
+
+ const mapStateToProps = state => {
+   return {
+     isLoggedIn: state.isLoggedIn
+   }
+ }
+
+ export default connect(mapStateToProps, {})(NavBar)
