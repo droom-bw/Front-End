@@ -9,6 +9,10 @@ import { Route } from "react-router-dom"
 import HomePage from "./components/Home/HomePage"
 import LoginComponent from "./components/Login"
 import Profile from "./components/Profile/Profile"
+import MatchList from "./components/Home/MatchesList"
+import DisplayJobs from "./components/Jobs/DisplayJobs";
+import SeekerProfile from "./components/Profile/SeekerProfile";
+import CompanyProfile from "./components/Profile/CompanyProfile";
 
 
 function App() {
@@ -16,13 +20,15 @@ function App() {
     <div className="App">
       <ThemeProvider>
         <NavBar />
-
+        <DisplayJobs />
+        <SeekerProfile />
+        <CompanyProfile />
 
       </ThemeProvider>
 
       <Route exact path="/" component={LoginComponent} />
       <Route exact path="/login" component={LoginComponent} />
-
+      <Route exact path="/Matches" component={MatchList}/>
       <Route exact path="/home" component={HomePage} />
       <Route exact path="/profile" component={Profile} />
     </div>

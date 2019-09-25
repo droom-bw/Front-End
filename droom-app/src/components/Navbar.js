@@ -22,7 +22,7 @@ export default function NavBar() {
     height: 30px;
     justify-content: baseline;
   `
-
+  //conditional, what you are to display correct navbar, which we'll get from the state.
   return (
     <ContainNav>
       <Image
@@ -46,7 +46,7 @@ export default function NavBar() {
         <Tag variantColor="teal">
           <TagLabel>
             <Link as={RouterLink} to="/login">
-              Log In
+              Jobs
             </Link>
           </TagLabel>
           <TagIcon icon="triangle-down" />
@@ -67,6 +67,17 @@ export default function NavBar() {
           </TagLabel>
           <TagIcon icon="triangle-up" />
         </Tag>
+        
+
+        <Tag variantColor="yellow">
+          <TagLabel>
+            <Link as={RouterLink} to="/Matches">
+              Matches
+            </Link>
+          </TagLabel>
+          <TagIcon icon="view" />
+        </Tag>
+
       </Stack>
     </ContainNav>
   )
