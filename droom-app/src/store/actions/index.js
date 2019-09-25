@@ -12,6 +12,14 @@ export const LOGIN_START = "LOGIN_START"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const LOGIN_FAILURE = "LOGIN_FAILURE"
 
+export const REGISTER_SEEKER_START = "REGISTER_SEEKER_START"
+export const REGISTER_SEEKER_SUCCESS = "REGISTER_SEEKER_SUCCESS"
+export const REGISTER_SEEKER_FAILURE = "REGISTER_SEEKER_FAILURE"
+
+export const REGISTER_COMPANY_START = "REGISTER_COMPANY_START"
+export const REGISTER_COMPANY_SUCCESS = "REGISTER_COMPANY_SUCCESS"
+export const REGISTER_COMPANY_FAILURE = "REGISTER_COMPANY_FAILURE"
+
 export const login = creds => dispatch => {
   console.log(creds)
   dispatch({type: LOGIN_START})
@@ -25,3 +33,28 @@ export const login = creds => dispatch => {
   })
 }
 
+export const registerSeeker = creds => dispatch => {
+  console.log(creds)
+  dispatch({type: REGISTER_SEEKER_START})
+  axios.post("/seekers/register", creds)
+  .then(res => {
+    console.log(res)
+    dispatch({type: REGISTER_SEEKER_SUCCESS, payload: res.data})
+  }).catch(err => {
+    console.log(err)
+    dispatch({type: REGISTER_SEEKER_FAILURE})
+  })
+}
+
+export const registerCompany = creds => dispatch => {
+  console.log(creds)
+  dispatch({type: REGISTER_COMPANY_START})
+  axios.post("/companies/register", creds)
+  .then(res => {
+    console.log(res)
+    dispatch({type: REGISTER_COMPANY_SUCCESS, payload: res.data})
+  }).catch(err => {
+    console.log(err)
+    dispatch({type: REGISTER_COMPANY_FAILURE})
+  })
+}

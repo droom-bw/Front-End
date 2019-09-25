@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { withFormik, Form, Field } from "formik"
 import { Link } from "react-router-dom"
+import {connect} from "react-redux"
 import * as Yup from "yup"
 import { Heading, FormControl, FormLabel, Input, Box, Flex, Button, Select } from "@chakra-ui/core"
 
@@ -41,7 +42,7 @@ const RegisterCompany = (props) => {
         <FormLabel margin="1.5%" htmlFor="password">Password</FormLabel>
         <Input type="password" name="password" onChange={handleChange} value={newCompany.password}/>
 
-        <FormLabel margin="1.5%" htmlFor="location">Password</FormLabel>
+        <FormLabel margin="1.5%" htmlFor="location">Location</FormLabel>
         <Input type="text" name="location" onChange={handleChange} value={newCompany.location}/>
         
         <Button type="submit" variantColor="green">Submit</Button>
@@ -51,4 +52,5 @@ const RegisterCompany = (props) => {
     );
 }
 
-export default RegisterCompany;
+
+export default connect(null, {registerCompany})(RegisterCompany);

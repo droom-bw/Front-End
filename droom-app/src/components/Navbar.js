@@ -31,7 +31,7 @@ export default function NavBar() {
     /* margin: 0 auto; */
     padding: 0 0 40px;
     background: white;
-    height: 20vh;
+    height: 15vh;
     border-bottom: 1px solid #50514F;
   `;
   
