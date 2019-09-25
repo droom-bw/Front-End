@@ -13,8 +13,10 @@ import MatchList from "./components/Home/MatchesList"
 import DisplayJobs from "./components/Jobs/DisplayJobs";
 import SeekerProfile from "./components/Profile/SeekerProfile";
 import CompanyProfile from "./components/Profile/CompanyProfile";
-import RegisterComponent from "./components/Register";
+import RegisterSeeker from "./components/RegisterSeeker";
+import RegisterCompany from "./components/RegisterCompany";
 
+//make private routes!
 
 function App() {
   return (
@@ -29,9 +31,9 @@ function App() {
       <Route exact path="/home" component={HomePage} />
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/jobs" component={DisplayJobs} />
-      <Route exact path="/register" component={RegisterComponent} />
+      <Route exact path="/registerSeeker" component={RegisterSeeker} />
+      <Route exact path="/registerCompany" component={RegisterCompany} />
 
-      
     </div>
     </ThemeProvider>
 

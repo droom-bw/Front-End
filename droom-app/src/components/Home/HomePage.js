@@ -1,5 +1,5 @@
 import React from "react"
-import connect from "react-redux";
+import { connect } from "react-redux";
 import CompanyCard from "./CompanyCard"
 import SeekerCard from "./SeekerCard"
 import { ThemeProvider, Flex } from "@chakra-ui/core"
@@ -8,7 +8,8 @@ import DenyButton from "./DenyButton"
 
 import { companies, seekers } from "../../data"
 
-export default function HomePage() {
+const HomePage = () => {
+  //check if object exists in redux state.
   const fakeState = {isSeeker: false};
   console.log(companies);
   console.log(seekers);
@@ -54,12 +55,10 @@ export default function HomePage() {
 //connect with redux to get state, this will determine if the user is a seeker of company
 const mapStateToProps = state => {
   return {
-    isLoading: state.isLoading,
-    isLoggedIn: state.isLoggedIn
   }
 }
 
-export default connect(mapStateToProps, {login})(LoginComponent)
+export default connect(mapStateToProps, {})(HomePage)
 
 
 

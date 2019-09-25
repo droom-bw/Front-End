@@ -7,17 +7,17 @@ import { Heading, FormControl, FormLabel, Input, Box, Flex, Button, Select } fro
 // import { connect } from "react-redux";
 // import { doSignIn } from "../util/actions/authActions";
 
-const RegisterComponent = (props) => {
+const RegisterCompany = (props) => {
     const [newCompany, setNewCompany] = useState({
       name: "",
       email: "",
       password: "",
-      isSeeker: false
+      location: ""
     })
 
     const handleSumbit = (event) => {
       event.preventDefault();  
-      props.register(newCompany);
+      props.registerCompany(newCompany);
       props.history.push("/home");
     }
 
@@ -33,13 +33,16 @@ const RegisterComponent = (props) => {
       <FormControl onSubmit={handleSumbit}>
       <Heading as="h1">Register</Heading>
         <FormLabel margin="1.5%" htmlFor="username">Name</FormLabel>
-        <Input type="name" name="name" id="name" onChange={handleChange} value={newUser.name}/>
+        <Input type="name" name="name" onChange={handleChange} value={newCompany.name}/>
         
         <FormLabel margin="1.5%" htmlFor="email">Email</FormLabel>
-        <Input type="email" name="email" id="email" onChange={handleChange} value={newUser.email}/>
+        <Input type="email" name="email" onChange={handleChange} value={newCompany.email}/>
 
         <FormLabel margin="1.5%" htmlFor="password">Password</FormLabel>
-        <Input type="password" name="password" id="password" onChange={handleChange} value={newUser.password}/>
+        <Input type="password" name="password" onChange={handleChange} value={newCompany.password}/>
+
+        <FormLabel margin="1.5%" htmlFor="location">Password</FormLabel>
+        <Input type="text" name="location" onChange={handleChange} value={newCompany.location}/>
         
         <Button type="submit" variantColor="green">Submit</Button>
       </FormControl>
@@ -48,4 +51,4 @@ const RegisterComponent = (props) => {
     );
 }
 
-export default RegisterComponent;
+export default RegisterCompany;

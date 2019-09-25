@@ -45,7 +45,7 @@ const LoginComponent = (props) => {
         <Button margin="3%" type="submit" variantColor="blue">Submit</Button>
     </FormControl>
     </Box>
-    <p>Don't have an account yet? <Link as={RouterLink} to="/register">Register</Link></p>
+    <p>Don't have an account yet? <Link as={RouterLink} to="/registerCompany">Register as Company</Link><Link as={RouterLink} to="/registerSeeker">Register as Seeker</Link></p>
     </>
     );
 }
