@@ -3,13 +3,14 @@ import CompanyCard from "./CompanyCard"
 import { ThemeProvider } from "@chakra-ui/core"
 import MatchButton from "./MatchButton"
 import DenyButton from "./DenyButton"
+import SeekerCard from "./SeekerCard"
 
 import { companies } from "../../data"
 
 export default function HomePage() {
-  const fakeState = {isSeeker: false, isCompany: true};
+  const fakeState = { isSeeker: false, isCompany: true }
   // console.log(fakeState);
-  
+
   const companies = [
     {
       id: 0,
@@ -42,8 +43,8 @@ export default function HomePage() {
       },
       matches: []
     }
-  ];
-  
+  ]
+
   const seekers = [
     {
       id: 0,
@@ -81,10 +82,9 @@ export default function HomePage() {
       resume: "",
       matches: []
     }
-  ];
+  ]
 
-
-   if (fakeState.isSeeker){
+  if (fakeState.isSeeker) {
     return (
       <div className="HomePage">
         <ThemeProvider>
@@ -95,7 +95,8 @@ export default function HomePage() {
       </div>
     )
   } else if (fakeState.isCompany) {
-    <div className="HomePage">
+    return (
+      <div className="HomePage">
         <ThemeProvider>
           {/* <CompanyCard data={companies[0]} /> */}
           <SeekerCard />
@@ -103,11 +104,10 @@ export default function HomePage() {
         <MatchButton />
         <DenyButton />
       </div>
+    )
   }
   //Based on state, render map either seekers or companies etc
-  
 }
-
 
 /* 
 
