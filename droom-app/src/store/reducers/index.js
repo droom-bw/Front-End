@@ -12,7 +12,7 @@ export const rootReducer = (state = initialState, action) => {
     case LOGIN_START:
       return {...state, isLoading: true}
     case LOGIN_SUCCESS:
-      return {...state, isLoading: false, userId: payload.id}
+      return {...state, isLoading: false, userId: action.payload.id}
     case LOGIN_FAILURE:
       return {...state, isLoading: false}
     default:

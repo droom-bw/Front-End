@@ -18,7 +18,6 @@ const CompanyCard = ({data}) => {
   console.log(data);
   console.log(data.data);
   return (
-    <ThemeProvider>
       <Box
         margin="2% auto"
         width="50%"
@@ -65,7 +64,6 @@ const CompanyCard = ({data}) => {
           </AccordionItem>
         </Accordion>
       </Box>
-    </ThemeProvider>
   )
 }
 export default CompanyCard

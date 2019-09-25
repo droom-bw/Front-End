@@ -29,7 +29,7 @@ export default function NavBar() {
     justify-content: space-around;
     align-items: center;
     /* margin: 0 auto; */
-    padding: 0 40px 40px;
+    padding: 0 0 40px;
   
   `;
   const ImgCont = styled.div`

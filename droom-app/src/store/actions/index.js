@@ -13,12 +13,14 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const LOGIN_FAILURE = "LOGIN_FAILURE"
 
 export const login = creds => dispatch => {
+  console.log(creds)
   dispatch({type: LOGIN_START})
   axios.post("/login", creds)
   .then(res => {
     console.log(res)
     dispatch({type: LOGIN_SUCCESS, payload: res.data})
   }).catch(err => {
+    console.log(err)
     dispatch({type: LOGIN_FAILURE})
   })
 }

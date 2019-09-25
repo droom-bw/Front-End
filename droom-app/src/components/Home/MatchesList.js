@@ -47,7 +47,7 @@ const companies = [
     },
     matches: []
   }
-];
+]     ;
 
 const seekers = [
   {
