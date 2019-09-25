@@ -28,7 +28,7 @@ export const rootReducer = (state = initialState, action) => {
       //So we'll have to do get their id
       //And also if seeker.resume exists, add isSeeker: true to the state
       //If seeker.resume doesn't exist, add isSeeker: false to the state
-      return {...state, isLoading: false, user: action.payload}
+      return {...state, isLoading: false, isLoggedIn: true, user: action.payload}
 
     case REGISTER_SEEKER_SUCCESS || REGISTER_COMPANY_SUCCESS:
       return {...state, isLoading: false}

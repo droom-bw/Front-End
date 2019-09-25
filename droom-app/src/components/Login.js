@@ -24,7 +24,7 @@ const LoginComponent = (props) => {
     const handleSumbit = (event) => {
         console.log("on submit");
       event.preventDefault();  
-      props.login(creds);
+      props.login(creds, props);
     }
 
     const handleChange = (event) => {

@@ -20,37 +20,36 @@ const RegisterSeeker = (props) => {
 
     const handleSumbit = (event) => {
       event.preventDefault();  
-      props.registerSeeker(newSeeker);
-      props.history.push("/home");
+      props.registerSeeker(newSeeker, props);
     }
 
     const handleChange = (event) => {
-      console.log(event);
-      console.log(newSeeker);
       setNewSeeker({...newSeeker, [event.target.name]: event.target.value})
     }
     return (
       <>
       <Box width="80%" margin="auto">
-      <FormControl onSubmit={handleSumbit}>
-      <Heading as="h1">Register</Heading>
-        <FormLabel margin="1.5%" htmlFor="username">Name</FormLabel>
-        <Input type="name" name="name" id="name" onChange={handleChange} value={newSeeker.name}/>
+      <form onSubmit={handleSumbit}>
+        <FormControl onSubmit={handleSumbit}>
+        <Heading as="h1">Register</Heading>
+          <FormLabel margin="1.5%" htmlFor="username">Name</FormLabel>
+          <Input type="name" name="name" id="name" onChange={handleChange} value={newSeeker.name}/>
+          
+          <FormLabel margin="1.5%" htmlFor="email">Email</FormLabel>
+          <Input type="email" name="email" id="email" onChange={handleChange} value={newSeeker.email}/>
+
+          <FormLabel margin="1.5%" htmlFor="password">Password</FormLabel>
+          <Input type="password" name="password" id="password" onChange={handleChange} value={newSeeker.password}/>
+
+          <FormLabel margin="1.5%" htmlFor="location">Location</FormLabel>
+          <Input type="text" name="location" id="location" onChange={handleChange} value={newSeeker.location} />
+
+          <FormLabel margin="1.5%" htmlFor="resume">Resume</FormLabel>
+          <Input type="text" name="resume" id="resume" onChange={handleChange} value={newSeeker.resume}/>
         
-        <FormLabel margin="1.5%" htmlFor="email">Email</FormLabel>
-        <Input type="email" name="email" id="email" onChange={handleChange} value={newSeeker.email}/>
-
-        <FormLabel margin="1.5%" htmlFor="password">Password</FormLabel>
-        <Input type="password" name="password" id="password" onChange={handleChange} value={newSeeker.password}/>
-
-        <FormLabel margin="1.5%" htmlFor="location">Location</FormLabel>
-        <Input type="text" name="location" id="location" onChange={handleChange} value={newSeeker.location} />
-
-        <FormLabel margin="1.5%" htmlFor="resume">Resume</FormLabel>
-        <Input type="text" name="resume" id="resume" onChange={handleChange} value={newSeeker.resume}/>
-      
-        <Button type="submit" variantColor="green">Submit</Button>
-      </FormControl>
+          <Button type="submit" variantColor="green">Submit</Button>
+        </FormControl>
+      </form>
     </Box>
     </>
     );

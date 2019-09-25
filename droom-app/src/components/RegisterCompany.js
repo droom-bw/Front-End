@@ -19,19 +19,17 @@ const RegisterCompany = (props) => {
 
     const handleSumbit = (event) => {
       event.preventDefault();  
-      props.registerCompany(newCompany);
+      props.registerCompany(newCompany, props);
     }
 
     const handleChange = (event) => {
-      console.log(event);
-      console.log(newCompany);
-      let formInputs = {...newCompany, [event.target.name]: event.target.value === "false" ? false : true}
-      setNewCompany(formInputs)
+      setNewCompany({...newCompany, [event.target.name]: event.target.value})
     }
     return (
       <>
       <Box width="80%" margin="auto">
-      <FormControl onSubmit={handleSumbit}>
+      <form onSubmit={handleSumbit}>
+      <FormControl >
       <Heading as="h1">Register</Heading>
         <FormLabel margin="1.5%" htmlFor="username">Name</FormLabel>
         <Input type="name" name="name" onChange={handleChange} value={newCompany.name}/>
@@ -47,6 +45,7 @@ const RegisterCompany = (props) => {
         
         <Button type="submit" variantColor="green">Submit</Button>
       </FormControl>
+      </form>
     </Box>
     </>
     );
