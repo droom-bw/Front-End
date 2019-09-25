@@ -24,13 +24,22 @@ export const REGISTER_COMPANY_FAILURE = "REGISTER_COMPANY_FAILURE"
 export const login = creds => dispatch => {
   console.log(creds)
   dispatch({type: LOGIN_START})
-  axiosWithAuth().post("/login", creds)
+  axiosWithAuth().post("/seekers/login", creds)
   .then(res => {
     console.log(res)
     dispatch({type: LOGIN_SUCCESS, payload: res.data})
+    localStorage.setItem("token", res.data.token)
   }).catch(err => {
     console.log(err)
     dispatch({type: LOGIN_FAILURE})
+    
+    axiosWithAuth().post("/companies/login", creds).then(res => {
+    console.log(res)
+    dispatch({type: LOGIN_SUCCESS, payload: res.data})
+    localStorage.setItem("token", res.data.token)
+  }).catch(err => {
+    console.log("BOTH LOGINS FAILED, WHO ARE YOU?")
+  })
   })
 }
 
