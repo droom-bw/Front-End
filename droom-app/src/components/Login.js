@@ -22,28 +22,29 @@ const LoginComponent = (props) => {
     })
 
     const handleSumbit = (event) => {
+        console.log("on submit");
       event.preventDefault();  
       props.login(creds);
-      props.history.push("/home");
     }
 
     const handleChange = (event) => {
       console.log(creds)
         setCreds({...creds, [event.target.name]: event.target.value})
     }
-    
+    //() => {handleSubmit().then(() => {props.history.push("/home")})}
     return (
     <>
-    
     <Box width="80%" margin="auto">
-    <FormControl onSubmit={handleSumbit}>
-    <Heading as="h1">Login</Heading>
-        <FormLabel margin="1.5%" htmlFor="email">Email</FormLabel>
-        <Input type="email" name="email" id="email" onChange={handleChange} value={creds.email}/>
-        <FormLabel margin="1.5%" htmlFor="">Password</FormLabel>
-        <Input type="password" name="password" id="password" onChange={handleChange} value={creds.password} />
-        <Button margin="3%" type="submit" variantColor="blue">Submit</Button>
-    </FormControl>
+    <form onSubmit={handleSumbit}>
+        <FormControl>
+        <Heading as="h1">Login</Heading>
+            <FormLabel margin="1.5%" htmlFor="email">Email</FormLabel>
+            <Input type="email" name="email" id="email" onChange={handleChange} value={creds.email}/>
+            <FormLabel margin="1.5%" htmlFor="">Password</FormLabel>
+            <Input type="password" name="password" id="password" onChange={handleChange} value={creds.password} />
+            <Button margin="3%" type="submit" variantColor="blue">Submit</Button>
+        </FormControl>
+    </form>
     </Box>
     <p>Don't have an account yet? <Link as={RouterLink} to="/registerCompany">Register as Company</Link><Link as={RouterLink} to="/registerSeeker">Register as Seeker</Link></p>
     </>

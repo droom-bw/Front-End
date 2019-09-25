@@ -1,5 +1,5 @@
 // Axios with Auth
-import { axiosWithAuth } from "../..utils/axiosWithAuth"
+import { axiosWithAuth } from "../../utils/axiosWithAuth"
 
 // ACTIONS
 export const ADD_MATCH_START = "ADD_MATCH_START"

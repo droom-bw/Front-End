@@ -1,8 +1,10 @@
 import React, { useState } from "react"
+import { connect } from "react-redux";
 import { withFormik, Form, Field } from "formik"
 import { Link } from "react-router-dom"
 import * as Yup from "yup"
 import { Heading, FormControl, FormLabel, Input, Box, Flex, Button, Select } from "@chakra-ui/core"
+import {registerSeeker} from "../store/actions/";
 
 // import { connect } from "react-redux";
 // import { doSignIn } from "../util/actions/authActions";
@@ -54,4 +56,4 @@ const RegisterSeeker = (props) => {
     );
 }
 
-export default RegisterSeeker;
+export default connect(null, {registerSeeker})(RegisterSeeker);

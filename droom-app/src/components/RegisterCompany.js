@@ -5,6 +5,7 @@ import {connect} from "react-redux"
 import * as Yup from "yup"
 import { Heading, FormControl, FormLabel, Input, Box, Flex, Button, Select } from "@chakra-ui/core"
 
+import {registerCompany} from "../store/actions"
 // import { connect } from "react-redux";
 // import { doSignIn } from "../util/actions/authActions";
 
@@ -19,7 +20,6 @@ const RegisterCompany = (props) => {
     const handleSumbit = (event) => {
       event.preventDefault();  
       props.registerCompany(newCompany);
-      props.history.push("/home");
     }
 
     const handleChange = (event) => {
