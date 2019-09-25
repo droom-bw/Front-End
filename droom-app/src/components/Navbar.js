@@ -28,13 +28,15 @@ export default function NavBar() {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    justify-content: space-between;
+    /* margin: 0 auto; */
     padding: 0 40px 40px;
   
   `;
   const ImgCont = styled.div`
 
     padding-top: 11px;
+
+    
 
   `
  /* conditional, what you are to display correct navbar, which we'll get from the state.  */
@@ -44,15 +46,15 @@ export default function NavBar() {
 
       <ImgCont>
 <Image
-        size="100px"
+        
         objectFit="cover"
         src="https://trello-attachments.s3.amazonaws.com/5d84f15f96af3e57f163ac23/5d8912e25b9b4611ab2e7d9f/96d61df1c18110078a6578764af62d3c/DroomLogo.png"
-        alt="Segun Adebayo"
+        alt="Droom Logo"
       />
       </ImgCont>
-      <Menu>
+      <Menu size="100px">
         
-        <MenuButton as={Button} rightIcon="chevron-down">
+        <MenuButton  as={Button} rightIcon="chevron-down">
           <Icon name="settings" />
           &ensp;Menu
         </MenuButton>

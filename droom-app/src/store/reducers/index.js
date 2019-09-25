@@ -1,97 +1,20 @@
-import { ADD_MATCH_START } from "../actions"
+import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE } from "../actions"
 
 const initialState = {
+  userId: NaN,
+  matches: [],
   isLoggedIn: false,
-  isSeeker: false,
-  isCompany: false,
   isLoading: false,
-  companies: [
-    {
-      id: 0,
-      name: "Lambda School",
-      email: "lambda@email.com",
-      description:
-        "Lambda School is an immersive bootcamp offering a variety of courses and such",
-      job: {
-        company: "Lambda School",
-        title: "Developer",
-        description:
-          "Lambda School needs a fullstack developer to perform alchemy",
-        salary: 1000000
-      },
-      matches: []
-    },
-    {
-      id: 1,
-      name: "Apple",
-      email: "apple@email.com",
-      description:
-        "Apple is an immersive bootcamp offering a variety of courses and such",
-      job: {
-        company: "Apple",
-        title: "Developer",
-        description: "Apple needs a fullstack developer to perform alchemy",
-        salary: 1000000
-      },
-      matches: []
-    },
-    {
-      id: 2,
-      name: "Yahoo",
-      email: "yahoo@email.com",
-      description:
-        "Yahoo is an immersive bootcamp offering a variety of courses and such",
-      job: {
-        company: "Yahoo",
-        title: "Developer",
-        description: "Yahoo needs a fullstack developer to perform alchemy",
-        salary: 1000000
-      },
-      matches: []
-    }
-  ],
-  seekers: [
-    {
-      id: 0,
-      name: "Matt Gill",
-      email: "mattgill@email.com",
-      location: "Baltimore, MD",
-      resume: "",
-      matches: []
-    },
-    {
-      id: 1,
-      name: "Devin Bielejec",
-      email: "devinb@email.com",
-      location: "Syracuse, NY",
-      resume: "",
-      matches: []
-    },
-    {
-      id: 2,
-      name: "Ian Schwartz",
-      email: "ians@email.com",
-      location: "Pasadena, CA",
-      resume: "",
-      matches: []
-    },
-    {
-      id: 3,
-      name: "Idir Abderahim",
-      email: "idira@email.com",
-      location: "Paris, France",
-      resume: "",
-      matches: []
-    }
-  ]
 }
 
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_MATCH_START:
-      return {
-        ...state
-      }
+    case LOGIN_START:
+      return {...state, isLoading: true}
+    case LOGIN_SUCCESS:
+      return {...state, isLoading: false, userId: payload.id}
+    case LOGIN_FAILURE:
+      return {...state, isLoading: false}
     default:
       return state
   }

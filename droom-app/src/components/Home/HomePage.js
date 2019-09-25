@@ -8,7 +8,7 @@ import DenyButton from "./DenyButton"
 import { companies, seekers } from "../../data"
 
 export default function HomePage() {
-  const fakeState = {isSeeker: true};
+  const fakeState = {isSeeker: false};
   console.log(companies);
   console.log(seekers);
   
@@ -20,7 +20,7 @@ export default function HomePage() {
             <ThemeProvider>
             <Flex direction="column" justify="center" paddingTop="20%">
                 <Flex  alignItems="center" justify="center">
-                    <SeekerCard data={seekers[0]} />
+                  <CompanyCard data={companies[0]} />
                 </Flex>
                 <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
                   <MatchButton />
@@ -32,7 +32,8 @@ export default function HomePage() {
             <ThemeProvider>
             <Flex direction="column" justify="center" paddingTop="20%">
                   <Flex  alignItems="center" justify="center">
-                      <CompanyCard data={companies[0]} />      
+                      
+                      <SeekerCard data={seekers[0]} />      
                   </Flex>
                   <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
                     <MatchButton />

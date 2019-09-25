@@ -1,5 +1,5 @@
 import React from 'react';
-import JobCard from "./JobCard";
+import JobCardForm from "./JobCard";
 
 //title, role, salary, description
 
@@ -9,8 +9,8 @@ const DisplayJobs = () => {
     return(
         <div>
             <h1>Jobs!</h1>
+            {fakeJobs.map( job => <JobCardForm job={job}/>)}
             <button>Add a job!</button>
-            {fakeJobs.map( job => <JobCard job={job}/>)}
         </div>
     )
 }
