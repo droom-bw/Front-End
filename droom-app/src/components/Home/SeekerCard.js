@@ -72,22 +72,7 @@ export default function SeekerCard(props) {
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
-<<<<<<< HEAD
-    </Box>
-</ThemeProvider>
-  );
-};
-
-{/* <div>
-<h2>Applicant: {props.item.name}</h2>
-<p>Location: {}</p>
-<p>Email: {}</p>
-<p>Resume: {}</p>
-</div>
-); */}
-=======
       </Box>
     </ThemeProvider>
   )
 }
->>>>>>> b2142eb54d6548b40f9ea91c62f0278033b10d22
