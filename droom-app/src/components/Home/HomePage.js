@@ -1,23 +1,33 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { connect } from "react-redux";
 import CompanyCard from "./CompanyCard"
 import SeekerCard from "./SeekerCard"
 import { ThemeProvider, Flex } from "@chakra-ui/core"
 import MatchButton from "./MatchButton"
 import DenyButton from "./DenyButton"
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
 import { companies, seekers } from "../../data"
 
-const HomePage = () => {
-  //check if object exists in redux state.
-  const fakeState = {isSeeker: false};
-  console.log(companies);
-  console.log(seekers);
+const HomePage = (props) => {
+  const [items, setItems] = useState([]);
+
+  useEffect( () => {
+    let dataString = "";
+    props.user.seeker ? dataString = "seekers" : dataString = "companies";
+    
+    axiosWithAuth().get(`/${dataString}`)
+    .then(res => {
+      setItems(res.data);
+      })
+    .catch(error => console.log(error))
+  }, [])
   
   return(
       
     <div className="HomePage">
-        {fakeState.isSeeker ?
+        {props.isLoading && <p>Loading...</p>}
+        {!props.user.seeker ?
           ( 
             <ThemeProvider>
             <Flex direction="column" justify="center" paddingBottom="20%">
@@ -44,7 +54,7 @@ const HomePage = () => {
               </Flex>
               </ThemeProvider>
           )}
-         </div> 
+    </div> 
    ) //end return 
 
 }//end function
@@ -55,89 +65,12 @@ const HomePage = () => {
 //connect with redux to get state, this will determine if the user is a seeker of company
 const mapStateToProps = state => {
   return {
+    isLoading: state.isLoading,
+    user: state.user
   }
 }
 
 export default connect(mapStateToProps, {})(HomePage)
-
-
-
-
-
-
- // )
-  // } else if (fakeState.isCompany) {
-  //   return (
-  //     <ThemeProvider>
-  //       <div className="HomePage">
-        // <Flex direction="column" justify="center" paddingTop="20%">
-        //     <Flex  alignItems="center" justify="center">
-        //         <CompanyCard data={companies[0]} />      
-        //     </Flex>
-        //     <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
-        //       <MatchButton />
-        //       <DenyButton />
-        //     </Flex>
-        // </Flex>
-  //       </div>
-  //     </ThemeProvider>
-  //   )
-  // }
-  //Based on state, render map either seekers or companies etc
-  
-
-
-
-
-// return (
-//   <div className="HomePage">
-
-//   <Flex direction="column" justify="center" paddingTop="20%">
-//       <Flex  alignItems="center" justify="center">
-//         <ThemeProvider>
-//           <CompanyCard data={companies[0]} />
-//         </ThemeProvider>
-//       </Flex>
-//       <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
-//         <MatchButton />
-//         <DenyButton />
-//       </Flex>
-//   </Flex>
-//   </div>
-// )
-// }
-
-
-
-//v2
-
-// export default function HomePage() {
-//   return (
-//     <div className="HomePage">
-
-//     <Flex>
-//         <Flex alignItems="center" justify="center" w="25%">
-//           <DenyButton />
-//         </Flex>
-//         <ThemeProvider>
-//           <CompanyCard data={companies[0]} />
-//         </ThemeProvider>
-//         <Flex alignItems="center" justify="center" w="25%">
-//           <MatchButton />
-//         </Flex>
-//       </Flex>
-//     </div>
-//   )
-// }
-
-
-
-
-
-
-
-
-
 
 
 

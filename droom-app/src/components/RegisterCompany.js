@@ -30,7 +30,7 @@ const RegisterCompany = (props) => {
       <Box width="80%" margin="auto">
       <form onSubmit={handleSumbit}>
       <FormControl >
-      <Heading as="h1">Register</Heading>
+      <Heading as="h1">Register as Company</Heading>
         <FormLabel margin="1.5%" htmlFor="username">Name</FormLabel>
         <Input type="name" name="name" onChange={handleChange} value={newCompany.name}/>
         

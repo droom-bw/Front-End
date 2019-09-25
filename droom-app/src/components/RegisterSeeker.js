@@ -31,7 +31,7 @@ const RegisterSeeker = (props) => {
       <Box width="80%" margin="auto">
       <form onSubmit={handleSumbit}>
         <FormControl onSubmit={handleSumbit}>
-        <Heading as="h1">Register</Heading>
+        <Heading as="h1">Register as Job Seeker</Heading>
           <FormLabel margin="1.5%" htmlFor="username">Name</FormLabel>
           <Input type="name" name="name" id="name" onChange={handleChange} value={newSeeker.name}/>
           

@@ -46,7 +46,7 @@ const LoginComponent = (props) => {
         </FormControl>
     </form>
     </Box>
-    <p>Don't have an account yet? <Link as={RouterLink} to="/registerCompany">Register as Company</Link><Link as={RouterLink} to="/registerSeeker">Register as Seeker</Link></p>
+    <p>Don't have an account yet?<br></br><Link as={RouterLink} to="/registerCompany">Register as Company</Link><br></br><Link as={RouterLink} to="/registerSeeker">Register as Seeker</Link></p>
     </>
     );
 }
