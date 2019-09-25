@@ -1,112 +1,130 @@
 import React from "react"
 import CompanyCard from "./CompanyCard"
-import { ThemeProvider } from "@chakra-ui/core"
+import SeekerCard from "./SeekerCard"
+import { ThemeProvider, Flex } from "@chakra-ui/core"
 import MatchButton from "./MatchButton"
 import DenyButton from "./DenyButton"
 
-import { companies } from "../../data"
+import { companies, seekers } from "../../data"
 
 export default function HomePage() {
-  const fakeState = {isSeeker: false, isCompany: true};
-  // console.log(fakeState);
+  const fakeState = {isSeeker: true};
+  console.log(companies);
+  console.log(seekers);
   
-  const companies = [
-    {
-      id: 0,
-      type: "company",
-      name: "Lambda School",
-      email: "lambda@email.com",
-      description:
-        "Lambda School is an immersive bootcamp offering a variety of courses and such",
-      job: {
-        company: "Lambda School",
-        title: "Developer",
-        description:
-          "Lambda School needs a fullstack developer to perform alchemy",
-        salary: 1000000
-      },
-      matches: []
-    },
-    {
-      id: 1,
-      type: "company",
-      name: "Apple",
-      email: "apple@email.com",
-      description:
-        "Apple is an immersive bootcamp offering a variety of courses and such",
-      job: {
-        company: "Apple",
-        title: "Developer",
-        description: "Apple needs a fullstack developer to perform alchemy",
-        salary: 1000000
-      },
-      matches: []
-    }
-  ];
-  
-  const seekers = [
-    {
-      id: 0,
-      type: "user",
-      name: "Matt Gill",
-      email: "mattgill@email.com",
-      location: "Baltimore, MD",
-      resume: "",
-      matches: []
-    },
-    {
-      id: 0,
-      type: "user",
-      name: "Devin Bielejec",
-      email: "devinb@email.com",
-      location: "Syracuse, NY",
-      resume: "",
-      matches: []
-    },
-    {
-      id: 0,
-      type: "user",
-      name: "Ian Schwartz",
-      email: "ians@email.com",
-      location: "Pasadena, CA",
-      resume: "",
-      matches: []
-    },
-    {
-      id: 0,
-      type: "user",
-      name: "Idir Abderahim",
-      email: "idira@email.com",
-      location: "Paris, France",
-      resume: "",
-      matches: []
-    }
-  ];
-
-
-   if (fakeState.isSeeker){
-    return (
-      <div className="HomePage">
-        <ThemeProvider>
-          <CompanyCard data={companies[0]} />
-        </ThemeProvider>
-        <MatchButton />
-        <DenyButton />
-      </div>
-    )
-  } else if (fakeState.isCompany) {
+  return(
+      
     <div className="HomePage">
-        <ThemeProvider>
-          {/* <CompanyCard data={companies[0]} /> */}
-          <SeekerCard />
-        </ThemeProvider>
-        <MatchButton />
-        <DenyButton />
-      </div>
-  }
+        {fakeState.isSeeker ?
+          ( 
+            <ThemeProvider>
+            <Flex direction="column" justify="center" paddingTop="20%">
+                <Flex  alignItems="center" justify="center">
+                    <SeekerCard data={seekers[0]} />
+                </Flex>
+                <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
+                  <MatchButton />
+                  <DenyButton />
+                </Flex>
+            </Flex>
+            </ThemeProvider>
+          ) : (
+            <ThemeProvider>
+            <Flex direction="column" justify="center" paddingTop="20%">
+                  <Flex  alignItems="center" justify="center">
+                      <CompanyCard data={companies[0]} />      
+                  </Flex>
+                  <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
+                    <MatchButton />
+                    <DenyButton />
+                  </Flex>
+              </Flex>
+              </ThemeProvider>
+          )}
+         </div> 
+   ) //end return 
+
+}//end function
+
+
+
+
+
+ // )
+  // } else if (fakeState.isCompany) {
+  //   return (
+  //     <ThemeProvider>
+  //       <div className="HomePage">
+        // <Flex direction="column" justify="center" paddingTop="20%">
+        //     <Flex  alignItems="center" justify="center">
+        //         <CompanyCard data={companies[0]} />      
+        //     </Flex>
+        //     <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
+        //       <MatchButton />
+        //       <DenyButton />
+        //     </Flex>
+        // </Flex>
+  //       </div>
+  //     </ThemeProvider>
+  //   )
+  // }
   //Based on state, render map either seekers or companies etc
   
-}
+
+
+
+
+// return (
+//   <div className="HomePage">
+
+//   <Flex direction="column" justify="center" paddingTop="20%">
+//       <Flex  alignItems="center" justify="center">
+//         <ThemeProvider>
+//           <CompanyCard data={companies[0]} />
+//         </ThemeProvider>
+//       </Flex>
+//       <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
+//         <MatchButton />
+//         <DenyButton />
+//       </Flex>
+//   </Flex>
+//   </div>
+// )
+// }
+
+
+
+//v2
+
+// export default function HomePage() {
+//   return (
+//     <div className="HomePage">
+
+//     <Flex>
+//         <Flex alignItems="center" justify="center" w="25%">
+//           <DenyButton />
+//         </Flex>
+//         <ThemeProvider>
+//           <CompanyCard data={companies[0]} />
+//         </ThemeProvider>
+//         <Flex alignItems="center" justify="center" w="25%">
+//           <MatchButton />
+//         </Flex>
+//       </Flex>
+//     </div>
+//   )
+// }
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* 
