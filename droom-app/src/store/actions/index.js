@@ -1,4 +1,5 @@
-import axios from "axios"
+// Axios with Auth
+import { axiosWithAuth } from "../..utils/axiosWithAuth"
 
 // ACTIONS
 export const ADD_MATCH_START = "ADD_MATCH_START"
@@ -23,7 +24,7 @@ export const REGISTER_COMPANY_FAILURE = "REGISTER_COMPANY_FAILURE"
 export const login = creds => dispatch => {
   console.log(creds)
   dispatch({type: LOGIN_START})
-  axios.post("/login", creds)
+  axiosWithAuth().post("/login", creds)
   .then(res => {
     console.log(res)
     dispatch({type: LOGIN_SUCCESS, payload: res.data})
@@ -36,7 +37,7 @@ export const login = creds => dispatch => {
 export const registerSeeker = creds => dispatch => {
   console.log(creds)
   dispatch({type: REGISTER_SEEKER_START})
-  axios.post("/seekers/register", creds)
+  axiosWithAuth().post("/seekers/register", creds)
   .then(res => {
     console.log(res)
     dispatch({type: REGISTER_SEEKER_SUCCESS, payload: res.data})
@@ -49,7 +50,7 @@ export const registerSeeker = creds => dispatch => {
 export const registerCompany = creds => dispatch => {
   console.log(creds)
   dispatch({type: REGISTER_COMPANY_START})
-  axios.post("/companies/register", creds)
+  axiosWithAuth().post("/companies/register", creds)
   .then(res => {
     console.log(res)
     dispatch({type: REGISTER_COMPANY_SUCCESS, payload: res.data})

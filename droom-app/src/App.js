@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import { ThemeProvider } from "@chakra-ui/core"
 import NavBar from "./components/Navbar"
 
-import { Route } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 
 import HomePage from "./components/Home/HomePage"
 import LoginComponent from "./components/Login"
@@ -17,6 +17,18 @@ import RegisterSeeker from "./components/RegisterSeeker";
 import RegisterCompany from "./components/RegisterCompany";
 
 //make private routes!
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      localStorage.getItem("token") ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
 
 function App() {
   return (
