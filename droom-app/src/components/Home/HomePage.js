@@ -23,9 +23,10 @@ const HomePage = (props) => {
     .catch(error => console.log(error))
   }, [])
 
-  const buttonHandler = () => {
+  const buttonHandler = (e) => {
     //move item from front of items to the end
     console.log(items);
+    console.log(e.target);
     const firstItem = items[0];
     setItems([...items.slice(1), firstItem])
   }
@@ -56,8 +57,8 @@ const HomePage = (props) => {
                       <SeekerCard data={seekers[0]} />      
                   </Flex>
                   <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
-                  <MatchButton buttonHandler={buttonHandler}/>
-                  <DenyButton buttonHandler={buttonHandler}/>
+                  <MatchButton buttonHandler={buttonHandler}></MatchButton>
+                  <DenyButton buttonHandler={buttonHandler}></DenyButton>
                   </Flex>
               </Flex>
               </ThemeProvider>
