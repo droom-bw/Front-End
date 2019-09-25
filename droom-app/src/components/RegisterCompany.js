@@ -8,55 +8,42 @@ import { Heading, FormControl, FormLabel, Input, Box, Flex, Button, Select } fro
 // import { doSignIn } from "../util/actions/authActions";
 
 const RegisterComponent = (props) => {
-    console.log("here");
-    const [newUser, setNewUser] = useState({
+    const [newCompany, setNewCompany] = useState({
       name: "",
       email: "",
       password: "",
-      location: "",
-      resume: "",
       isSeeker: false
     })
 
     const handleSumbit = (event) => {
       event.preventDefault();  
-      props.register(newUser);
+      props.register(newCompany);
       props.history.push("/home");
     }
 
     const handleChange = (event) => {
       console.log(event);
-      console.log(newUser)
-        setNewUser({...newUser, [event.target.name]: event.target.value})
+      console.log(newCompany);
+      let formInputs = {...newCompany, [event.target.name]: event.target.value === "false" ? false : true}
+      setNewCompany(formInputs)
     }
     return (
       <>
-      <Heading as="h1">Register</Heading>
-      
+      <Box width="80%" margin="auto">
       <FormControl onSubmit={handleSumbit}>
-        <FormLabel htmlFor="username">Name</FormLabel>
+      <Heading as="h1">Register</Heading>
+        <FormLabel margin="1.5%" htmlFor="username">Name</FormLabel>
         <Input type="name" name="name" id="name" onChange={handleChange} value={newUser.name}/>
         
-        <FormLabel htmlFor="email">Email</FormLabel>
+        <FormLabel margin="1.5%" htmlFor="email">Email</FormLabel>
         <Input type="email" name="email" id="email" onChange={handleChange} value={newUser.email}/>
 
-        <FormLabel htmlFor="password">Password</FormLabel>
+        <FormLabel margin="1.5%" htmlFor="password">Password</FormLabel>
         <Input type="password" name="password" id="password" onChange={handleChange} value={newUser.password}/>
-
-        <FormLabel htmlFor="location">Location</FormLabel>
-        <Input type="text" name="location" id="location" onChange={handleChange} value={newUser.location} />
-
-        <FormLabel htmlFor="resume">Resume</FormLabel>
-        <Input type="text" name="resume" id="resume" onChange={handleChange} value={newUser.resume}/>
         
-        <FormControl>
-          <Select name="isSeeker" onChange={handleChange} placeholder="Are you...">
-          <option value="true">Looking for a job</option>
-          <option value="false">Looking for a candidate</option>
-          </Select>
-        </FormControl>
         <Button type="submit" variantColor="green">Submit</Button>
       </FormControl>
+    </Box>
     </>
     );
 }

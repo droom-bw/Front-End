@@ -34,14 +34,15 @@ const LoginComponent = (props) => {
     
     return (
     <>
-    <Heading as="h1">Login</Heading>
+    
     <Box width="80%" margin="auto">
     <FormControl onSubmit={handleSumbit}>
+    <Heading as="h1">Login</Heading>
         <FormLabel margin="1.5%" htmlFor="email">Email</FormLabel>
         <Input type="email" name="email" id="email" onChange={handleChange} value={creds.email}/>
         <FormLabel margin="1.5%" htmlFor="">Password</FormLabel>
         <Input type="password" name="password" id="password" onChange={handleChange} value={creds.password} />
-        <Button margin="3%" type="submit" variantColor="green">Submit</Button>
+        <Button margin="3%" type="submit" variantColor="blue">Submit</Button>
     </FormControl>
     </Box>
     <p>Don't have an account yet? <Link as={RouterLink} to="/register">Register</Link></p>

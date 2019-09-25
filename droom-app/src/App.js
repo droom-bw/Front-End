@@ -30,6 +30,8 @@ function App() {
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/jobs" component={DisplayJobs} />
       <Route exact path="/register" component={RegisterComponent} />
+
+      
     </div>
     </ThemeProvider>
 

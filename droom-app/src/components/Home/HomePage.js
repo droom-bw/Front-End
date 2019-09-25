@@ -1,4 +1,5 @@
 import React from "react"
+import connect from "react-redux";
 import CompanyCard from "./CompanyCard"
 import SeekerCard from "./SeekerCard"
 import { ThemeProvider, Flex } from "@chakra-ui/core"
@@ -46,6 +47,20 @@ export default function HomePage() {
    ) //end return 
 
 }//end function
+
+
+
+
+//connect with redux to get state, this will determine if the user is a seeker of company
+const mapStateToProps = state => {
+  return {
+    isLoading: state.isLoading,
+    isLoggedIn: state.isLoggedIn
+  }
+}
+
+export default connect(mapStateToProps, {login})(LoginComponent)
+
 
 
 
@@ -128,36 +143,3 @@ export default function HomePage() {
 
 
 
-/* 
-
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import SeekerCard from "../Home/SeekerCard"
-
-export default function SeekerProfile() {
-  const [seeker, setSeeker] = useState([])
-
-  useEffect(() => {
-    axios
-      .get("https://rickandmortyapi.com/api/character/")
-      .then(res => {
-        const seekerData = res.data.results
-        console.log("this is the data", seekerData)
-        setSeeker(seekerData)
-      })
-      .catch(err => {
-        console.log("This is an error", err)
-      })
-  }, [])
-
-  return (
-    <div>
-      {seeker.map(item => {
-        return <SeekerCard key={item.name} item={item} />
-      })}
-    </div>
-  )
-}
-
-
-*/

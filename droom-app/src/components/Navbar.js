@@ -30,13 +30,12 @@ export default function NavBar() {
     align-items: center;
     /* margin: 0 auto; */
     padding: 0 0 40px;
-  
+    background: white;
+    height: 20vh;
+    border-bottom: 1px solid #50514F;
   `;
+  
   const ImgCont = styled.div`
-
-    padding-top: 11px;
-
-    
 
   `
  /* conditional, what you are to display correct navbar, which we'll get from the state.  */
@@ -54,7 +53,7 @@ export default function NavBar() {
       </ImgCont>
       <Menu size="100px">
         
-        <MenuButton  as={Button} rightIcon="chevron-down">
+        <MenuButton as={Button} rightIcon="chevron-down" size="sm">
           &ensp;Menu
         </MenuButton>
 

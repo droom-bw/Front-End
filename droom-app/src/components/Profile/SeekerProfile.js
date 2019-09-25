@@ -10,7 +10,7 @@ import {
   Button
 } from "@chakra-ui/core";
 
-const SeekerProfile = () => {
+const SeekerProfile = (props) => {
   return (
 
   <Box width="80%" margin="auto">

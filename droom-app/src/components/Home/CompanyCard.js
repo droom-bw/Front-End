@@ -20,7 +20,7 @@ const CompanyCard = ({data}) => {
   return (
       <Box
         margin="2% auto"
-        width="50%"
+        width="70%"
         border="2px"
         borderRadius="md"
         borderColor="gray.200"
