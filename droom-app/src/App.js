@@ -13,7 +13,7 @@ import MatchList from "./components/Home/MatchesList"
 import DisplayJobs from "./components/Jobs/DisplayJobs";
 import SeekerProfile from "./components/Profile/SeekerProfile";
 import CompanyProfile from "./components/Profile/CompanyProfile";
-import RegisterForm from "./components/Register";
+import RegisterComponent from "./components/Register";
 
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
       <Route exact path="/home" component={HomePage} />
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/jobs" component={DisplayJobs} />
-      <Route exact path="register" component={RegisterForm} />
+      <Route exact path="/register" component={RegisterComponent} />
     </div>
     </ThemeProvider>
 

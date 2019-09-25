@@ -1,11 +1,15 @@
 import React, {useState} from "react"
 import {connect} from "react-redux"
+import {Link as RouterLink} from "react-router-dom"
 import { withFormik, Form, Field } from "formik"
 import * as Yup from "yup"
 import {
+  FormControl,
   FormLabel,
   Input,
-  Button
+  Button,
+  Heading,
+  Link
 } from "@chakra-ui/core";
 import { login } from "../store/actions";
 
@@ -28,13 +32,17 @@ const LoginComponent = (props) => {
     }
     
     return (
-    <FormLabel onSubmit={handleSumbit}>
+    <>
+    <Heading as="h1">Login</Heading>
+    <FormControl onSubmit={handleSumbit}>
         <FormLabel htmlFor="email">Email</FormLabel>
         <Input type="email" name="email" id="email" onChange={handleChange} value={creds.email}/>
         <FormLabel htmlFor="">Password</FormLabel>
         <Input type="password" name="password" id="password" onChange={handleChange} value={creds.password} />
         <Button type="submit" variantColor="green">Submit</Button>
-    </FormLabel>
+    </FormControl>
+    <p>Don't have an account yet? <Link as={RouterLink} to="/register">Register</Link></p>
+    </>
     );
 }
 const mapStateToProps = state => {

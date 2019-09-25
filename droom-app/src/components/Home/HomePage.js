@@ -18,7 +18,7 @@ export default function HomePage() {
         {fakeState.isSeeker ?
           ( 
             <ThemeProvider>
-            <Flex direction="column" justify="center" paddingTop="20%">
+            <Flex direction="column" justify="center" paddingBottom="20%">
                 <Flex  alignItems="center" justify="center">
                   <CompanyCard data={companies[0]} />
                 </Flex>
@@ -30,7 +30,7 @@ export default function HomePage() {
             </ThemeProvider>
           ) : (
             <ThemeProvider>
-            <Flex direction="column" justify="center" paddingTop="20%">
+            <Flex direction="column" justify="center" paddingBottom="20%">
                   <Flex  alignItems="center" justify="center">
                       
                       <SeekerCard data={seekers[0]} />      
