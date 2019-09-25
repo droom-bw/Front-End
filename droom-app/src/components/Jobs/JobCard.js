@@ -1,12 +1,13 @@
 import React from "react"
-import {FormControl, FormLabel, Input, Box, Flex} from "@chakra-ui/core"
+import {FormControl, FormLabel, Input, Box, Flex, Heading} from "@chakra-ui/core"
 
 //title, role, salary, description
 
 function JobCardForm({job}) {
   return (
-    <Box>
+    <Box width="80%" margin="auto">
         <FormControl>
+          <Heading>Create a Job Posting</Heading>
           <FormLabel htmlFor="title">Title</FormLabel>
           <Input type="title" id="title" />
           <FormLabel htmlFor="role">Role</FormLabel>

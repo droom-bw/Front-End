@@ -46,7 +46,7 @@ export default function NavBar() {
 
       <ImgCont>
 <Image
-        
+        size="130px"
         objectFit="cover"
         src="https://trello-attachments.s3.amazonaws.com/5d84f15f96af3e57f163ac23/5d8912e25b9b4611ab2e7d9f/96d61df1c18110078a6578764af62d3c/DroomLogo.png"
         alt="Droom Logo"
@@ -55,7 +55,6 @@ export default function NavBar() {
       <Menu size="100px">
         
         <MenuButton  as={Button} rightIcon="chevron-down">
-          <Icon name="settings" />
           &ensp;Menu
         </MenuButton>
 

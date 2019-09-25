@@ -9,7 +9,8 @@ import {
   Input,
   Button,
   Heading,
-  Link
+  Link, 
+  Box
 } from "@chakra-ui/core";
 import { login } from "../store/actions";
 
@@ -34,13 +35,15 @@ const LoginComponent = (props) => {
     return (
     <>
     <Heading as="h1">Login</Heading>
+    <Box width="80%" margin="auto">
     <FormControl onSubmit={handleSumbit}>
-        <FormLabel htmlFor="email">Email</FormLabel>
+        <FormLabel margin="1.5%" htmlFor="email">Email</FormLabel>
         <Input type="email" name="email" id="email" onChange={handleChange} value={creds.email}/>
-        <FormLabel htmlFor="">Password</FormLabel>
+        <FormLabel margin="1.5%" htmlFor="">Password</FormLabel>
         <Input type="password" name="password" id="password" onChange={handleChange} value={creds.password} />
-        <Button type="submit" variantColor="green">Submit</Button>
+        <Button margin="3%" type="submit" variantColor="green">Submit</Button>
     </FormControl>
+    </Box>
     <p>Don't have an account yet? <Link as={RouterLink} to="/register">Register</Link></p>
     </>
     );

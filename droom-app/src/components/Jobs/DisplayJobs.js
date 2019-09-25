@@ -8,7 +8,6 @@ const DisplayJobs = () => {
 
     return(
         <div>
-            <h1>Jobs!</h1>
             {fakeJobs.map( job => <JobCardForm job={job}/>)}
             <button>Add a job!</button>
         </div>

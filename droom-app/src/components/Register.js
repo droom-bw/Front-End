@@ -25,6 +25,7 @@ const RegisterComponent = (props) => {
     }
 
     const handleChange = (event) => {
+      console.log(event);
       console.log(newUser)
         setNewUser({...newUser, [event.target.name]: event.target.value})
     }
@@ -34,26 +35,25 @@ const RegisterComponent = (props) => {
       
       <FormControl onSubmit={handleSumbit}>
         <FormLabel htmlFor="username">Name</FormLabel>
-        <Input type="name" name="name" id="name" />
+        <Input type="name" name="name" id="name" onChange={handleChange} value={newUser.name}/>
         
         <FormLabel htmlFor="email">Email</FormLabel>
-        <Input type="email" name="email" id="email" />
+        <Input type="email" name="email" id="email" onChange={handleChange} value={newUser.email}/>
 
         <FormLabel htmlFor="password">Password</FormLabel>
-        <Input type="password" name="password" id="password" />
+        <Input type="password" name="password" id="password" onChange={handleChange} value={newUser.password}/>
 
         <FormLabel htmlFor="location">Location</FormLabel>
-        <Input type="text" name="location" id="location" />
+        <Input type="text" name="location" id="location" onChange={handleChange} value={newUser.location} />
 
         <FormLabel htmlFor="resume">Resume</FormLabel>
-        <Input type="text" name="resume" id="resume" />
+        <Input type="text" name="resume" id="resume" onChange={handleChange} value={newUser.resume}/>
         
         <FormControl>
-          <Select placeholder="Are you...">
-          <option name="seeker">Looking for a job</option>
-          <option name="company">Looking for a candidate</option>
+          <Select name="isSeeker" onChange={handleChange} placeholder="Are you...">
+          <option value="true">Looking for a job</option>
+          <option value="false">Looking for a candidate</option>
           </Select>
-          
         </FormControl>
         <Button type="submit" variantColor="green">Submit</Button>
       </FormControl>
