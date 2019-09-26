@@ -13,11 +13,13 @@ import {
 } from "@chakra-ui/core"
 import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core"
 
-const CompanyCard = (props) => {
-  console.log("Company Card", props);
+const CompanyCard = ({company}) => {
+  const { name, email, location } = company;
+  const { title, salary, description} = company.jobs[0]
+  console.log("Company Card", company);
   return (
     <ThemeProvider>
-      {props.data != undefined ? (
+      {company ? (
       <Box
         margin="2% auto"
         width="70%"
@@ -29,10 +31,10 @@ const CompanyCard = (props) => {
       >
         <Flex direction="column" wrap="wrap" align="center">
           <Heading size="lg" whiteSpace="pre-line" wordBreak="break-word">
-            {props.name}
+            {name}
           </Heading>
           <Text whiteSpace="pre-line" wordBreak="break-word">
-            {props.description}
+            {description}
           </Text>
         </Flex>
         <Accordion defaultIndex={[0]} allowMultiple>
@@ -41,7 +43,7 @@ const CompanyCard = (props) => {
               <Box>Job Title</Box>
               <AccordionIcon />
             </AccordionHeader>
-            <AccordionPanel>{props.job.title}</AccordionPanel>
+            <AccordionPanel>{title}</AccordionPanel>
           </AccordionItem>
           <AccordionItem>
             <AccordionHeader justifyContent="center">
@@ -49,7 +51,7 @@ const CompanyCard = (props) => {
               <AccordionIcon />
             </AccordionHeader>
             <AccordionPanel whiteSpace="pre-line" wordBreak="break-word">
-              ${props.job.salary}
+              ${salary}
             </AccordionPanel>
           </AccordionItem>
           <AccordionItem>
@@ -59,7 +61,7 @@ const CompanyCard = (props) => {
             </AccordionHeader>
             <AccordionPanel>
               <Text whiteSpace="pre-line" wordBreak="break-word">
-                {props.job.description}
+                {description}
               </Text>
             </AccordionPanel>
           </AccordionItem>

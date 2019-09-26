@@ -81,7 +81,7 @@ function NavBar(props) {
 
           {props.user.type === "company" && <Link as={RouterLink} to="/jobs">
             <MenuItem>
-              <Icon name="briefcase" />
+              <Icon name="email" />
               &ensp;Jobs
             </MenuItem>
           </Link>}

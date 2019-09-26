@@ -37,14 +37,23 @@ const HomePage = props => {
 
   const buttonHandler = (value) => {
     //move item from front of items to the end
-    console.log(items)
-    console.log(value);
     const firstItem = items[0]
     setItems([...items.slice(1), firstItem])
 
-    //post to matches
-  }
 
+    if (props.user.type === "seeker") {
+      ///FAKE JOB ID
+      const jobID = items[0].id;
+    
+      axiosWithAuth().post(`/seekerID/${props.user.id}/${jobID}`)
+      .then(res => {
+        console.log(`Post request home page`, res);
+        //do nothing in state
+      })
+      .catch(error => console.log(error));
+    }
+  }
+  console.log("ITEMS", items[0])
   return (
     <div className="HomePage">
       {props.isLoading && <p>Loading...</p>}
@@ -69,7 +78,7 @@ const HomePage = props => {
         <ThemeProvider>
           <Flex direction="column" justify="center" paddingBottom="20%">
             <Flex alignItems="center" justify="center">
-              <SeekerCard data={items[0]} />
+              <SeekerCard seeker={items[0]} />
             </Flex>
             <Flex
               alignItems="center"

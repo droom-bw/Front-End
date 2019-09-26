@@ -6,7 +6,7 @@ import SeekerProfile from "./SeekerProfile"
 const Profile = props => {
   return (
     <div className="Profile">
-      {props.user.type === "seeker" ? <SeekerProfile /> : <CompanyProfile />}
+      {props.user.type === "seeker" ? <SeekerProfile/> : <CompanyProfile/>}
     </div>
   )
 }

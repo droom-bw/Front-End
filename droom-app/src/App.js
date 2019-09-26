@@ -3,9 +3,7 @@ import "./App.scss"
 import { connect } from "react-redux"
 import { ThemeProvider } from "@chakra-ui/core"
 import NavBar from "./components/Navbar"
-
 import { Route, Redirect } from "react-router-dom"
-
 import HomePage from "./components/Home/HomePage"
 import LoginComponent from "./components/Login"
 import Profile from "./components/Profile/Profile"
@@ -43,8 +41,6 @@ function App() {
 
 
         <Route exact path="/matches" component={MatchList} />       
-        
-        
         <Route exact path="/jobs" component={DisplayJobs} />
 
         {/* Partially work */}

@@ -1,106 +1,79 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {connect} from "react-redux"
 import styled from "styled-components";
 import { Stack, Box, Heading, Text } from "@chakra-ui/core";
-import StackEx from "../Sidebar";
 import CompanyCard from "./CompanyCard";
-// import {companies, seekers} from '../..data';
+import SeekerCard from "./SeekerCard";
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
-const companies = [
-  {
-    id: 0,
-    name: "Lambda School",
-    email: "lambda@email.com",
-    description:
-      "Lambda School is an immersive bootcamp offering a variety of courses and such",
-    job: {
-      company: "Lambda School",
-      title: "Developer",
-      description:
-        "Lambda School needs a fullstack developer to perform alchemy",
-      salary: 1000000
-    },
-    matches: []
-  },
-  {
-    id: 1,
-    name: "Apple",
-    email: "apple@email.com",
-    description:
-      "Apple is an immersive bootcamp offering a variety of courses and such",
-    job: {
-      company: "Apple",
-      title: "Developer",
-      description: "Apple needs a fullstack developer to perform alchemy",
-      salary: 1000000
-    },
-    matches: []
-  },
-  {
-    id: 2,
-    name: "Yahoo",
-    email: "yahoo@email.com",
-    description:
-      "Yahoo is an immersive bootcamp offering a variety of courses and such",
-    job: {
-      company: "Yahoo",
-      title: "Developer",
-      description: "Yahoo needs a fullstack developer to perform alchemy",
-      salary: 1000000
-    },
-    matches: []
+function MatchList(props) {
+  //for now
+  const mockData = {
+    name: "Devin",
+    location: "Devin, NY",
+    resume: "I'm a React Developer",
+    email: "Devin@Gamilawefa.com",
+    jobs: [
+      {
+        job_id: 1,
+        company_name: "Apple",
+        title: "Backend Developer",
+        description: "aweofija",
+        salary: 400000000
+      }
+    ]
   }
-]     ;
 
-const seekers = [
-  {
-    id: 0,
-    name: "Matt Gill",
-    email: "mattgill@email.com",
-    location: "Baltimore, MD",
-    resume: "",
-    matches: []
-  },
-  {
-    id: 0,
-    name: "Devin Bielejec",
-    email: "devinb@email.com",
-    location: "Syracuse, NY",
-    resume: "",
-    matches: []
-  },
-  {
-    id: 0,
-    name: "Ian Schwartz",
-    email: "ians@email.com",
-    location: "Pasadena, CA",
-    resume: "",
-    matches: []
-  },
-  {
-    id: 0,
-    name: "Idir Abderahim",
-    email: "idira@email.com",
-    location: "Paris, France",
-    resume: "",
-    matches: []
-  }
-];
+  const [matches, setMatches] = useState([]);
+  const [data, setData] = useState(mockData)
 
-export default function MatchList() {
-  const Cont = styled.div``;
 
+    useEffect(() => {
+      if (props.user.type === "seeker") {
+      axiosWithAuth()
+      .get(`/seekers/seekerID/${props.user.id}/`)
+      .then(res => {
+        console.log(res);
+        setMatches(res.data.jobs);
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    } else {
+      axiosWithAuth()
+      .get(`/companies/companyID/${props.user.id}/`)
+      .then(res => {
+        setData(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }},[])
+
+
+  
+  
   return (
-    <Cont>
-      {companies.map(people => {
-        return <StackEx name={people.name} 
-                        description={people.job.description}
-                        job= {people.job.salary}
-                        title={people.job.title}
-                        salary={people.job.salary}
-
-                        
-        />;
-      })}
-    </Cont>
+    <div>
+   { props.user.type ==='seeker' ? (
+   
+   
+   matches.map(match => {
+    return <CompanyCard company={data} />
+   })
+   ):(
+     matches.map(match => {
+     return <SeekerCard seeker={data}/>
+    })
+   )}
+   </div>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps, {})(MatchList)
