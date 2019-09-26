@@ -13,6 +13,7 @@ import { companies, seekers } from "../../data"
 const HomePage = props => {
   const [items, setItems] = useState([])
 
+  //DO WE WANT TO SHOW JOBS OR COMPANIES HERE???????????????????
   useEffect(() => {
     let dataString = ""
     props.user.type === "seekers"
@@ -25,23 +26,22 @@ const HomePage = props => {
         setItems(res.data)
       })
       .catch(error => console.log(error))
-  }, [props.user.type])
+    }, [])
 
   if (!props.user.type) {
     props.pageReload()
   }
 
-  const buttonHandler = e => {
+  const buttonHandler = (value) => {
     //move item from front of items to the end
     console.log(items)
-    console.log(e.target)
+    console.log(value);
     const firstItem = items[0]
     setItems([...items.slice(1), firstItem])
   }
 
   return (
     <div className="HomePage">
-      <button onClick={buttonHandler}>test</button>
       {props.isLoading && <p>Loading...</p>}
       {!props.user.type === "seeker" ? (
         <ThemeProvider>
@@ -64,7 +64,7 @@ const HomePage = props => {
         <ThemeProvider>
           <Flex direction="column" justify="center" paddingBottom="20%">
             <Flex alignItems="center" justify="center">
-              <SeekerCard data={seekers[0]} />
+              <SeekerCard data={items[0]} />
             </Flex>
             <Flex
               alignItems="center"
