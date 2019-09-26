@@ -14,8 +14,7 @@ import {
 import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core"
 
 const CompanyCard = ({company}) => {
-  const { name, email, location } = company;
-  const { title, salary, description} = company.jobs
+  const { name, email, location, description, title, salary } = company;
   console.log("Company Card", company);
   return (
     <ThemeProvider>

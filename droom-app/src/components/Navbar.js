@@ -31,9 +31,9 @@ function NavBar(props) {
     justify-content: space-around;
     align-items: center;
     /* margin: 0 auto; */
-    padding: 0 0 40px;
-    background: white;
-    height: 15vh;
+     margin-bottom:2%;
+    background: #F2F2F2;
+    
     border-bottom: 1px solid #50514f;
   `
 

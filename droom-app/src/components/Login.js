@@ -57,7 +57,7 @@ const LoginComponent = props => {
               onChange={handleChange}
               value={creds.password}
             />
-            <Button margin="3%" type="submit" variantColor="blue">
+            <Button margin="3%" type="submit" variantColor='grey' variantColor="blue">
               Submit
             </Button>
           </FormControl>

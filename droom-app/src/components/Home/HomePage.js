@@ -50,7 +50,7 @@ const HomePage = props => {
       ///FAKE JOB ID
       const jobID = items[0].id;
     
-      axiosWithAuth().post(`seekers/seekerID/${props.user.id}/${jobID}`)
+      axiosWithAuth().post(`seekers/seekerID/${props.user.id}/`)
       .then(res => {
         console.log(`Post request home page`, res);
         //do nothing in state

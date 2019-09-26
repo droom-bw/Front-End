@@ -30,13 +30,12 @@ const SeekerProfile = (props) => {
   //Save changes for editing
   const handleSubmit = e => {
     e.preventDefault();
-    axiosWithAuth().put(`/seekerID/${props.user.id}`, seekerProfile)
+    axiosWithAuth().put(`seekers/seekerID/${props.user.id}`, seekerProfile)
     .then(res => {
       console.log("Put request for seeker profile", res);
       props.updateSeekerProfile(seekerProfile); 
     })
-    props.history.push('/profile');
-
+  
   }
   return (
     <Box width="80%" margin="auto">

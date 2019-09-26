@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {connect} from "react-redux"
 import styled from "styled-components";
-import { Stack, Box, Heading, Text } from "@chakra-ui/core";
+import { Stack, Box, Heading, Text, Box, Flex } from "@chakra-ui/core";
 import CompanyCard from "./CompanyCard";
 import SeekerCard from "./SeekerCard";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
@@ -38,6 +38,7 @@ function MatchList(props) {
     if (props.user.type === "seeker") {
     axiosWithAuth()
     .get(`/seekers/seekerID/${props.user.id}/matches`)
+    //THIS IS GETTING THE JOBS ON THE SEEKER OBJECT
     .then(res => {
       console.log(res);
       setMatches(res.data);
@@ -58,6 +59,7 @@ function MatchList(props) {
   }},[])
 
   return (
+   <div> 
     <div>
    { props.user.type ==='seeker' ? (
    
