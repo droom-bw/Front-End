@@ -11,8 +11,14 @@ import { axiosWithAuth } from "../../utils/axiosWithAuth"
 import { companies, seekers } from "../../data"
 
 const HomePage = props => {
-  const [items, setItems] = useState([])
-
+  const [items, setItems] = useState([{
+    name: "Loading",
+    email: "Loading",
+    resume: "Loading",
+    location: "Loading"
+  }])
+  const [loading, setLoading] = useState(true);
+  
   //DO WE WANT TO SHOW JOBS OR COMPANIES HERE???????????????????
   useEffect(() => {
     let dataString = ""
@@ -39,13 +45,12 @@ const HomePage = props => {
     //move item from front of items to the end
     const firstItem = items[0]
     setItems([...items.slice(1), firstItem])
-
-
+  
     if (props.user.type === "seeker") {
       ///FAKE JOB ID
       const jobID = items[0].id;
     
-      axiosWithAuth().post(`/seekerID/${props.user.id}/${jobID}`)
+      axiosWithAuth().post(`seekers/seekerID/${props.user.id}/${jobID}`)
       .then(res => {
         console.log(`Post request home page`, res);
         //do nothing in state
@@ -53,6 +58,7 @@ const HomePage = props => {
       .catch(error => console.log(error));
     }
   }
+  
   console.log("ITEMS", items[0])
   return (
     <div className="HomePage">

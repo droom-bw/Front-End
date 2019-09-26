@@ -13,7 +13,8 @@ import {
 } from "@chakra-ui/core"
 
 export default function SeekerCard(props) {
-  const {name, email, password, location, resume} = props.seeker
+  console.log(props)
+  const {name, email, location, resume} = props.seeker
   
   return (
     <ThemeProvider>

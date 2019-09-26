@@ -8,6 +8,7 @@ import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
 function MatchList(props) {
   //for now
+  console.log("hi");
   const mockData = {
     name: "Devin",
     location: "Devin, NY",
@@ -24,35 +25,38 @@ function MatchList(props) {
     ]
   }
 
-  const [matches, setMatches] = useState([]);
+  const [matches, setMatches] = useState([{
+    name: "Loading",
+    email: "Loading",
+    resume: "Loading",
+    location: "Loading"
+  }]);
   const [data, setData] = useState(mockData)
 
 
-    useEffect(() => {
-      if (props.user.type === "seeker") {
-      axiosWithAuth()
-      .get(`/seekers/seekerID/${props.user.id}/`)
-      .then(res => {
-        console.log(res);
-        setMatches(res.data.jobs);
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    } else {
-      axiosWithAuth()
-      .get(`/companies/companyID/${props.user.id}/`)
-      .then(res => {
-        setData(res.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    }},[])
+  useEffect(() => {
+    if (props.user.type === "seeker") {
+    axiosWithAuth()
+    .get(`/seekers/seekerID/${props.user.id}/matches`)
+    .then(res => {
+      console.log(res);
+      setMatches(res.data);
+      setData(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  } else {
+    axiosWithAuth()
+    .get(`/companies/companyID/${props.user.id}/matches`)
+    .then(res => {
+      setData(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }},[])
 
-
-  
-  
   return (
     <div>
    { props.user.type ==='seeker' ? (

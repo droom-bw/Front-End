@@ -15,7 +15,7 @@ import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core"
 
 const CompanyCard = ({company}) => {
   const { name, email, location } = company;
-  const { title, salary, description} = company.jobs[0]
+  const { title, salary, description} = company.jobs
   console.log("Company Card", company);
   return (
     <ThemeProvider>
@@ -72,44 +72,3 @@ const CompanyCard = ({company}) => {
   )
 }
 export default CompanyCard
-
-// const Container = styled.div`
-//     display:flex;
-//     flex-wrap: wrap;
-//     justify-content:center;
-//     border: 1px solid black;
-//     width:30%;
-//     margin:0 auto;
-//     align-content: center;
-//     white-space:pre-line;
-// `;
-
-// const StyledH1 = styled.h1`
-//     width:100%;
-// `;
-
-// const StyleP = styled.p`
-//     width:100%;
-//     flex-wrap:wrap;
-//     word-wrap:break-word;
-
-// `;
-
-// const StyledRow = styled.div`
-//     flex-wrap:wrap;
-//     width:100%;
-
-// `;
-
-//    <Container>
-//         <StyledRow>
-//             <StyledH1>{data.name}</StyledH1>
-//             <StyleP>{data.description}</StyleP>
-//         </StyledRow>
-//         <div>
-//             <h2>{data.job.company}</h2>
-//             <h3>{data.job.title}</h3>
-//             <h3>${data.job.salary}</h3>
-//             <p>{data.job.description}</p>
-//         </div>
-//     </Container>
