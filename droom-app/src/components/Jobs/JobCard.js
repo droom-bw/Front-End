@@ -89,6 +89,8 @@ function JobCardForm({ job, errors, touched, isSubmitting }) {
   )
 }
 
+//FINISH THE REST OF THIS JOBCARD
+
 const JobCard = withFormik({
   mapPropsToValues({ username, password }) {
     return {

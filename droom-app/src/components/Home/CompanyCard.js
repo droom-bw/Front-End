@@ -13,7 +13,10 @@ import {
 } from "@chakra-ui/core"
 import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core"
 
-const CompanyCard = ({ data }) => {
+const CompanyCard = ({data}) => {
+
+  console.log(data);
+  console.log(data.data);
   return (
     <ThemeProvider>
       <Box
