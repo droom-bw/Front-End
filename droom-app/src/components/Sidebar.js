@@ -30,6 +30,7 @@ import React from "react"
             border="2px"
             borderRadius="md"
             borderColor="gray.200"
+            backgroundColor="gray.200"
             padding="3%"
           >
             <Flex direction="column" wrap="wrap" align="center">

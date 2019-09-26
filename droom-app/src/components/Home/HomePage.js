@@ -1,40 +1,44 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+import { connect } from "react-redux"
 import CompanyCard from "./CompanyCard"
 import SeekerCard from "./SeekerCard"
 import { ThemeProvider, Flex } from "@chakra-ui/core"
 import MatchButton from "./MatchButton"
 import DenyButton from "./DenyButton"
-import SeekerCard from "./SeekerCard"
+import { axiosWithAuth } from "../../utils/axiosWithAuth"
 
 import { companies, seekers } from "../../data"
 
-export default function HomePage() {
-  const fakeState = { isSeeker: true }
-  console.log(companies)
-  console.log(seekers)
+const HomePage = props => {
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    let dataString = ""
+    props.user.seeker ? (dataString = "seekers") : (dataString = "companies")
+
+    axiosWithAuth()
+      .get(`/${dataString}`)
+      .then(res => {
+        setItems(res.data)
+      })
+      .catch(error => console.log(error))
+  }, [])
+
+  const buttonHandler = e => {
+    //move item from front of items to the end
+    console.log(items)
+    console.log(e.target)
+    const firstItem = items[0]
+    setItems([...items.slice(1), firstItem])
+  }
 
   return (
     <div className="HomePage">
-      {fakeState.isSeeker ? (
+      <button onClick={buttonHandler}>test</button>
+      {props.isLoading && <p>Loading...</p>}
+      {!props.user.seeker ? (
         <ThemeProvider>
-          <Flex direction="column" justify="center" paddingTop="20%">
-            <Flex alignItems="center" justify="center">
-              <SeekerCard data={seekers[0]} />
-            </Flex>
-            <Flex
-              alignItems="center"
-              justify="space-evenly"
-              margin="3%"
-              padding="2%"
-            >
-              <MatchButton />
-              <DenyButton />
-            </Flex>
-          </Flex>
-        </ThemeProvider>
-      ) : (
-        <ThemeProvider>
-          <Flex direction="column" justify="center" paddingTop="20%">
+          <Flex direction="column" justify="center" paddingBottom="20%">
             <Flex alignItems="center" justify="center">
               <CompanyCard data={companies[0]} />
             </Flex>
@@ -44,8 +48,25 @@ export default function HomePage() {
               margin="3%"
               padding="2%"
             >
-              <MatchButton />
-              <DenyButton />
+              <MatchButton buttonHandler={buttonHandler}></MatchButton>
+              <DenyButton buttonHandler={buttonHandler}></DenyButton>
+            </Flex>
+          </Flex>
+        </ThemeProvider>
+      ) : (
+        <ThemeProvider>
+          <Flex direction="column" justify="center" paddingBottom="20%">
+            <Flex alignItems="center" justify="center">
+              <SeekerCard data={seekers[0]} />
+            </Flex>
+            <Flex
+              alignItems="center"
+              justify="space-evenly"
+              margin="3%"
+              padding="2%"
+            >
+              <MatchButton buttonHandler={buttonHandler}></MatchButton>
+              <DenyButton buttonHandler={buttonHandler}></DenyButton>
             </Flex>
           </Flex>
         </ThemeProvider>
@@ -54,95 +75,15 @@ export default function HomePage() {
   ) //end return
 } //end function
 
-// )
-// } else if (fakeState.isCompany) {
-//   return (
-//     <ThemeProvider>
-//       <div className="HomePage">
-// <Flex direction="column" justify="center" paddingTop="20%">
-//     <Flex  alignItems="center" justify="center">
-//         <CompanyCard data={companies[0]} />
-//     </Flex>
-//     <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
-//       <MatchButton />
-//       <DenyButton />
-//     </Flex>
-// </Flex>
-//       </div>
-//     </ThemeProvider>
-//   )
-// }
-//Based on state, render map either seekers or companies etc
-
-// return (
-//   <div className="HomePage">
-
-//   <Flex direction="column" justify="center" paddingTop="20%">
-//       <Flex  alignItems="center" justify="center">
-//         <ThemeProvider>
-//           <CompanyCard data={companies[0]} />
-//         </ThemeProvider>
-//       </Flex>
-//       <Flex alignItems="center" justify="space-evenly" margin="3%" padding="2%">
-//         <MatchButton />
-//         <DenyButton />
-//       </Flex>
-//   </Flex>
-//   </div>
-// )
-// }
-
-//v2
-
-// export default function HomePage() {
-//   return (
-//     <div className="HomePage">
-
-//     <Flex>
-//         <Flex alignItems="center" justify="center" w="25%">
-//           <DenyButton />
-//         </Flex>
-//         <ThemeProvider>
-//           <CompanyCard data={companies[0]} />
-//         </ThemeProvider>
-//         <Flex alignItems="center" justify="center" w="25%">
-//           <MatchButton />
-//         </Flex>
-//       </Flex>
-//     </div>
-//   )
-// }
-
-/* 
-
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import SeekerCard from "../Home/SeekerCard"
-
-export default function SeekerProfile() {
-  const [seeker, setSeeker] = useState([])
-
-  useEffect(() => {
-    axios
-      .get("https://rickandmortyapi.com/api/character/")
-      .then(res => {
-        const seekerData = res.data.results
-        console.log("this is the data", seekerData)
-        setSeeker(seekerData)
-      })
-      .catch(err => {
-        console.log("This is an error", err)
-      })
-  }, [])
-
-  return (
-    <div>
-      {seeker.map(item => {
-        return <SeekerCard key={item.name} item={item} />
-      })}
-    </div>
-  )
+//connect with redux to get state, this will determine if the user is a seeker of company
+const mapStateToProps = state => {
+  return {
+    isLoading: state.isLoading,
+    user: state.user
+  }
 }
 
-
-*/
+export default connect(
+  mapStateToProps,
+  {}
+)(HomePage)
