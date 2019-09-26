@@ -60,8 +60,8 @@ const HomePage = props => {
               margin="3%"
               padding="2%"
             >
-              <MatchButton buttonHandler={buttonHandler}></MatchButton>
-              <DenyButton buttonHandler={buttonHandler}></DenyButton>
+              <MatchButton buttonHandler={buttonHandler} variantColor="green"></MatchButton>
+              <DenyButton buttonHandler={buttonHandler} variantColor="red"></DenyButton>
             </Flex>
           </Flex>
         </ThemeProvider>
@@ -77,8 +77,8 @@ const HomePage = props => {
               margin="3%"
               padding="2%"
             >
-              <MatchButton buttonHandler={buttonHandler}></MatchButton>
-              <DenyButton buttonHandler={buttonHandler}></DenyButton>
+              <MatchButton buttonHandler={buttonHandler} variantColor="green"></MatchButton>
+              <DenyButton buttonHandler={buttonHandler} variantColor="red"></DenyButton>
             </Flex>
           </Flex>
         </ThemeProvider>

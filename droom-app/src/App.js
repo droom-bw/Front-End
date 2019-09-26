@@ -30,6 +30,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 )
 
+//LOGOUT???? remove token etc
+
 function App() {
   return (
     <ThemeProvider>
@@ -37,12 +39,20 @@ function App() {
         <NavBar />
         <Route exact path="/seekerProfile" component={SeekerProfile} />
         <Route exact path="/companyProfile" component={CompanyProfile} />
+        <Route exact path="/profile" component={Profile} />
+
+
+        <Route exact path="/matches" component={MatchList} />       
+        
+        
+        <Route exact path="/jobs" component={DisplayJobs} />
+
+        {/* Partially work */}
+        <Route exact path="/home" component={HomePage} />
+
+        {/* Tested and work */}
         <Route exact path="/" component={LoginComponent} />
         <Route exact path="/login" component={LoginComponent} />
-        <Route exact path="/matches" component={MatchList} />
-        <Route exact path="/home" component={HomePage} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/jobs" component={DisplayJobs} />
         <Route exact path="/registerSeeker" component={RegisterSeeker} />
         <Route exact path="/registerCompany" component={RegisterCompany} />
       </div>

@@ -79,13 +79,18 @@ function NavBar(props) {
             </MenuItem>
           </Link>
 
+          {props.user.type === "company" && <Link as={RouterLink} to="/jobs">
+            <MenuItem>
+              <Icon name="briefcase" />
+              &ensp;Jobs
+            </MenuItem>
+          </Link>}
+
           {props.isLoggedIn ? (
             <Link as={RouterLink} onClick={logout} to="/login">
               <MenuItem>
-                <MenuItem>
                   <Icon name="triangle-down" />
                   &ensp;Log Out
-                </MenuItem>
               </MenuItem>
             </Link>
           ) : (
@@ -109,7 +114,8 @@ import {Link} from "@chakra-ui/core"
 
 const mapStateToProps = state => {
   return {
-    isLoggedIn: state.isLoggedIn
+    isLoggedIn: state.isLoggedIn,
+    user: state.user
   }
 }
 
