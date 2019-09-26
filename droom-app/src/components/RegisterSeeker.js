@@ -27,7 +27,7 @@ const RegisterSeeker = (props) => {
       setNewSeeker({...newSeeker, [event.target.name]: event.target.value})
     }
     return (
-      <>
+      <Box height='100vh'>
       <Box width="80%" margin="auto">
       <form onSubmit={handleSumbit}>
         <FormControl onSubmit={handleSumbit}>
@@ -51,7 +51,7 @@ const RegisterSeeker = (props) => {
         </FormControl>
       </form>
     </Box>
-    </>
+    </Box>
     );
 }
 

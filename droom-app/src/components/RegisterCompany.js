@@ -6,6 +6,7 @@ import * as Yup from "yup"
 import { Heading, FormControl, FormLabel, Input, Box, Flex, Button, Select } from "@chakra-ui/core"
 
 import {registerCompany} from "../store/actions"
+import '../index.css'
 // import { connect } from "react-redux";
 // import { doSignIn } from "../util/actions/authActions";
 
@@ -27,6 +28,7 @@ const RegisterCompany = (props) => {
     }
     return (
       <>
+     <Box height='100vh'> 
       <Box width="80%" margin="auto">
       <form onSubmit={handleSumbit}>
       <FormControl >
@@ -46,6 +48,7 @@ const RegisterCompany = (props) => {
         <Button type="submit" variantColor="green">Submit</Button>
       </FormControl>
       </form>
+    </Box>
     </Box>
     </>
     );
