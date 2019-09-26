@@ -35,17 +35,17 @@ function App() {
     <ThemeProvider>
       <div className="App">
         <NavBar />
-        <Route exact path="/seekerProfile" component={SeekerProfile} />
-        <Route exact path="/companyProfile" component={CompanyProfile} />
-        <Route exact path="/profile" component={Profile} />
+        <PrivateRoute exact path="/seekerProfile" component={SeekerProfile} />
+        <PrivateRoute exact path="/companyProfile" component={CompanyProfile} />
+        <PrivateRoute exact path="/profile" component={Profile} />
 
 
-        <Route exact path="/matches" component={MatchList} />       
+        <PrivateRoute exact path="/matches" component={MatchList} />       
 
-        <Route exact path="/jobs" component={DisplayJobs} />
+        <PrivateRoute exact path="/jobs" component={DisplayJobs} />
 
         {/* Partially work */}
-        <Route exact path="/home" component={HomePage} />
+        <PrivateRoute exact path="/home" component={HomePage} />
 
         {/* Tested and work */}
         <Route exact path="/" component={LoginComponent} />
