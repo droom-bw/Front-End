@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { connect } from "react-redux"
+import { pageReload } from "../../store/actions"
 import CompanyCard from "./CompanyCard"
 import SeekerCard from "./SeekerCard"
 import { ThemeProvider, Flex } from "@chakra-ui/core"
@@ -14,7 +15,9 @@ const HomePage = props => {
 
   useEffect(() => {
     let dataString = ""
-    props.user.seeker ? (dataString = "seekers") : (dataString = "companies")
+    props.user.type === "seekers"
+      ? (dataString = "seekers")
+      : (dataString = "companies")
 
     axiosWithAuth()
       .get(`/${dataString}`)
@@ -22,7 +25,11 @@ const HomePage = props => {
         setItems(res.data)
       })
       .catch(error => console.log(error))
-  }, [])
+  }, [props.user.type])
+
+  if (!props.user.type) {
+    props.pageReload()
+  }
 
   const buttonHandler = e => {
     //move item from front of items to the end
@@ -36,7 +43,7 @@ const HomePage = props => {
     <div className="HomePage">
       <button onClick={buttonHandler}>test</button>
       {props.isLoading && <p>Loading...</p>}
-      {!props.user.seeker ? (
+      {!props.user.type === "seeker" ? (
         <ThemeProvider>
           <Flex direction="column" justify="center" paddingBottom="20%">
             <Flex alignItems="center" justify="center">
@@ -85,5 +92,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { pageReload }
 )(HomePage)
