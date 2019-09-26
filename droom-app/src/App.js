@@ -15,8 +15,8 @@ import RegisterSeeker from "./components/RegisterSeeker"
 import RegisterCompany from "./components/RegisterCompany"
 
 //make private routes!
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  return <Route
     {...rest}
     render={props =>
       localStorage.getItem("token") ? (
@@ -26,7 +26,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       )
     }
   />
-)
+}
 
 //LOGOUT???? remove token etc
 
@@ -41,6 +41,7 @@ function App() {
 
 
         <Route exact path="/matches" component={MatchList} />       
+
         <Route exact path="/jobs" component={DisplayJobs} />
 
         {/* Partially work */}
