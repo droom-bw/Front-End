@@ -15,17 +15,15 @@ import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core"
 
 const CompanyCard = ({data}) => {
 
-  console.log(data);
-  console.log(data.data);
   return (
-    <ThemeProvider>
       <Box
         margin="2% auto"
-        width="50%"
+        width="70%"
         border="2px"
         borderRadius="md"
         borderColor="gray.200"
         padding="3%"
+        backgroundColor="gray.200"
       >
         <Flex direction="column" wrap="wrap" align="center">
           <Heading size="lg" whiteSpace="pre-line" wordBreak="break-word">
@@ -65,7 +63,6 @@ const CompanyCard = ({data}) => {
           </AccordionItem>
         </Accordion>
       </Box>
-    </ThemeProvider>
   )
 }
 export default CompanyCard

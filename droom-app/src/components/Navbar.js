@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux"
 import {
   Tag,
   TagIcon,
@@ -22,19 +23,20 @@ import { Link } from "@chakra-ui/core";
 import styled from "styled-components";
 import { Image } from "@chakra-ui/core";
 
-export default function NavBar() {
+function NavBar(props) {
   const ContainNav = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 40px 40px;
-  
+    /* margin: 0 auto; */
+    padding: 0 0 40px;
+    background: white;
+    height: 15vh;
+    border-bottom: 1px solid #50514F;
   `;
+  
   const ImgCont = styled.div`
-
-    padding-top: 11px;
 
   `
  /* conditional, what you are to display correct navbar, which we'll get from the state.  */
@@ -44,16 +46,15 @@ export default function NavBar() {
 
       <ImgCont>
 <Image
-        size="100px"
+        size="130px"
         objectFit="cover"
         src="https://trello-attachments.s3.amazonaws.com/5d84f15f96af3e57f163ac23/5d8912e25b9b4611ab2e7d9f/96d61df1c18110078a6578764af62d3c/DroomLogo.png"
-        alt="Segun Adebayo"
+        alt="Droom Logo"
       />
       </ImgCont>
-      <Menu>
+      <Menu size="100px">
         
-        <MenuButton as={Button} rightIcon="chevron-down">
-          <Icon name="settings" />
+        <MenuButton as={Button} rightIcon="chevron-down" size="sm">
           &ensp;Menu
         </MenuButton>
 
@@ -92,3 +93,11 @@ export default function NavBar() {
 import {Link} from "@chakra-ui/core"
  then use it like this
  <Link as={ RouterLink } to="/home"> Home </Link> */
+
+ const mapStateToProps = state => {
+   return {
+     isLoggedIn: state.isLoggedIn
+   }
+ }
+
+ export default connect(mapStateToProps, {})(NavBar)
