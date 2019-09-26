@@ -1,26 +1,27 @@
-import { 
-  LOGIN_START, 
-  LOGIN_SUCCESS, 
+import {
+  LOGIN_START,
+  LOGIN_SUCCESS,
   LOGIN_FAILURE,
   REGISTER_COMPANY_START,
   REGISTER_COMPANY_SUCCESS,
   REGISTER_COMPANY_FAILURE,
   REGISTER_SEEKER_START,
   REGISTER_SEEKER_SUCCESS,
-  REGISTER_SEEKER_FAILURE
+  REGISTER_SEEKER_FAILURE,
+  LOGOUT
 } from "../actions"
 
 const initialState = {
-  user: {},
+  user: localStorage.getItem("user") || {},
   matches: [],
-  isLoggedIn: false,
-  isLoading: false,
+  isLoggedIn: localStorage.getItem("token") ? true : false,
+  isLoading: false
 }
 
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_START || REGISTER_COMPANY_START || REGISTER_SEEKER_START:
-      return {...state, isLoading: true}
+      return { ...state, isLoading: true }
 
     case LOGIN_SUCCESS:
       //I think we also want to pass in the user object here, not just userId
@@ -28,14 +29,28 @@ export const rootReducer = (state = initialState, action) => {
       //So we'll have to do get their id
       //And also if seeker.resume exists, add isSeeker: true to the state
       //If seeker.resume doesn't exist, add isSeeker: false to the state
-      return {...state, isLoading: false, isLoggedIn: true, user: action.payload}
+      return {
+        ...state,
+        isLoading: false,
+        isLoggedIn: true,
+        user: {
+          ...action.payload,
+          type: action.payload.hasOwnProperty("resume") ? "seeker" : "company"
+        }
+      }
 
     case REGISTER_SEEKER_SUCCESS || REGISTER_COMPANY_SUCCESS:
-      return {...state, isLoading: false}
+      return { ...state, isLoading: false }
 
     case LOGIN_FAILURE || REGISTER_COMPANY_FAILURE || REGISTER_SEEKER_FAILURE:
-      return {...state, isLoading: false}
-      
+      return { ...state, isLoading: false }
+
+    case LOGOUT:
+      return {
+        ...state,
+        isLoggedIn: false
+      }
+
     default:
       return state
   }
