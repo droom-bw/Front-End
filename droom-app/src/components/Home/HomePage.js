@@ -22,7 +22,7 @@ const HomePage = props => {
         setItems(res.data)
       })
       .catch(error => console.log(error))
-  }, [])
+  }, [items])
 
   const buttonHandler = (value) => {
     //move item from front of items to the end
@@ -34,7 +34,6 @@ const HomePage = props => {
 
   return (
     <div className="HomePage">
-      <button onClick={buttonHandler}>test</button>
       {props.isLoading && <p>Loading...</p>}
       {!props.user.seeker ? (
         <ThemeProvider>
@@ -57,7 +56,7 @@ const HomePage = props => {
         <ThemeProvider>
           <Flex direction="column" justify="center" paddingBottom="20%">
             <Flex alignItems="center" justify="center">
-              <SeekerCard data={seekers[0]} />
+              <SeekerCard data={items[0]} />
             </Flex>
             <Flex
               alignItems="center"
