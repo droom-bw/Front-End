@@ -12,13 +12,13 @@ import {
   ThemeProvider
 } from "@chakra-ui/core"
 
-export default function SeekerCard(props) {
-  console.log("props", props)
+export default function SeekerCard({data}) {
+  console.log(`SeekerData: `, data);
   return (
     <ThemeProvider>
       <Box
         margin="2% auto"
-        width="50%"
+        width="70%"
         border="2px"
         borderRadius="md"
         borderColor="gray.200"
@@ -26,10 +26,10 @@ export default function SeekerCard(props) {
       >
         <Flex direction="column" wrap="wrap" align="center">
           <Heading size="lg" whiteSpace="pre-line" wordBreak="break-word">
-            Test
+            {data.name}
           </Heading>
           <Text whiteSpace="pre-line" wordBreak="break-word">
-            Test
+            {data.email}
           </Text>
         </Flex>
         <Accordion defaultIndex={[0]} allowMultiple>
@@ -38,7 +38,7 @@ export default function SeekerCard(props) {
               <Box>Applicant</Box>
               <AccordionIcon />
             </AccordionHeader>
-            <AccordionPanel>Test</AccordionPanel>
+            <AccordionPanel>{data.name}</AccordionPanel>
           </AccordionItem>
           <AccordionItem>
             <AccordionHeader justifyContent="center">
@@ -46,7 +46,7 @@ export default function SeekerCard(props) {
               <AccordionIcon />
             </AccordionHeader>
             <AccordionPanel whiteSpace="pre-line" wordBreak="break-word">
-              Test
+              {data.location}
             </AccordionPanel>
           </AccordionItem>
           <AccordionItem>
@@ -56,7 +56,7 @@ export default function SeekerCard(props) {
             </AccordionHeader>
             <AccordionPanel>
               <Text whiteSpace="pre-line" wordBreak="break-word">
-                Test
+                {data.email}
               </Text>
             </AccordionPanel>
           </AccordionItem>
@@ -67,7 +67,7 @@ export default function SeekerCard(props) {
             </AccordionHeader>
             <AccordionPanel>
               <Text whiteSpace="pre-line" wordBreak="break-word">
-                Test
+                {data.resume}
               </Text>
             </AccordionPanel>
           </AccordionItem>

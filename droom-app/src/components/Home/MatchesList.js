@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Stack, Box, Heading, Text } from "@chakra-ui/core";
-import StackEx from "../SideBar";
+import StackEx from "../Sidebar";
+import CompanyCard from "./CompanyCard";
+// import {companies, seekers} from '../..data';
 
 const companies = [
   {
@@ -47,7 +49,7 @@ const companies = [
     },
     matches: []
   }
-];
+]     ;
 
 const seekers = [
   {
@@ -89,8 +91,15 @@ export default function MatchList() {
 
   return (
     <Cont>
-      {seekers.map(people => {
-        return <StackEx name={people.name} />;
+      {companies.map(people => {
+        return <StackEx name={people.name} 
+                        description={people.job.description}
+                        job= {people.job.salary}
+                        title={people.job.title}
+                        salary={people.job.salary}
+
+                        
+        />;
       })}
     </Cont>
   );
