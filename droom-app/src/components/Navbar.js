@@ -55,7 +55,7 @@ function NavBar(props) {
         />
       </ImgCont>
       <Menu size="100px">
-        <MenuButton as={Button} rightIcon="chevron-down" size="sm">
+        <MenuButton as={Button} rightIcon="chevron-down" size="sm" variantColor="blue" variant="outline">
           &ensp;Menu
         </MenuButton>
 

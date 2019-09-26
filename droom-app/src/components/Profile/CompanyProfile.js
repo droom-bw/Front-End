@@ -22,7 +22,7 @@ const CompanyProfile = () => {
     <Input type="location" id="location" />
     <FormLabel margin="1.5%" htmlFor="description">Description</FormLabel>
     <Input type="description" id="description" />
-    <Button margin="2%" type="submit">Submit</Button>
+    <Button margin="2%" type="submit" variantColor="blue" variant="solid">Submit</Button>
   </FormControl>
 </Box>
   );

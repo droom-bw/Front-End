@@ -20,7 +20,7 @@ const SeekerProfile = (props) => {
    email: props.user.email, 
    resume: props.user.resume, 
    location: props.user.location,
-   password: "Change password" 
+   password: "" 
  });
 
   const handleChange = e => {
@@ -59,7 +59,7 @@ const SeekerProfile = (props) => {
         
         
         
-        <Button margin="2%" type="submit" colorVariant="green">Update</Button>
+        <Button margin="2%" type="submit" variantColor="green">Update</Button>
         </FormControl>
         </form>
     </Box>

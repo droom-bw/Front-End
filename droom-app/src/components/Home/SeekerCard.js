@@ -24,7 +24,7 @@ export default function SeekerCard(props) {
         width="70%"
         border="2px"
         borderRadius="md"
-        borderColor="gray.200"
+        borderColor="#F2F2F2"
         padding="3%"
       >
         <Flex direction="column" wrap="wrap" align="center">

@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { pageReload } from "../../store/actions"
 import CompanyCard from "./CompanyCard"
 import SeekerCard from "./SeekerCard"
-import { ThemeProvider, Flex } from "@chakra-ui/core"
+import { ThemeProvider, Flex, Box } from "@chakra-ui/core"
 import MatchButton from "./MatchButton"
 import DenyButton from "./DenyButton"
 import { axiosWithAuth } from "../../utils/axiosWithAuth"
@@ -17,6 +17,9 @@ const HomePage = props => {
     resume: "Loading",
     location: "Loading"
   }])
+  const fakeJobs = [
+    {}
+  ]
   const [loading, setLoading] = useState(true);
   
   //DO WE WANT TO SHOW JOBS OR COMPANIES HERE???????????????????
@@ -48,9 +51,9 @@ const HomePage = props => {
   
     if (props.user.type === "seeker") {
       ///FAKE JOB ID
-      const jobID = items[0].id;
+      const jobID = 2;
     
-      axiosWithAuth().post(`seekers/seekerID/${props.user.id}/`)
+      axiosWithAuth().post(`seekers/seekerID/${props.user.id}/${jobID}`)
       .then(res => {
         console.log(`Post request home page`, res);
         //do nothing in state
@@ -61,10 +64,11 @@ const HomePage = props => {
   
   console.log("ITEMS", items[0])
   return (
+   <Box height="100vh"> 
     <div className="HomePage">
       {props.isLoading && <p>Loading...</p>}
       {!props.user.type === "seeker" ? (
-        <ThemeProvider>
+
           <Flex direction="column" justify="center" paddingBottom="20%">
             <Flex alignItems="center" justify="center">
               <CompanyCard data={items[0]} />
@@ -79,9 +83,8 @@ const HomePage = props => {
               <DenyButton buttonHandler={buttonHandler} variantColor="red"></DenyButton>
             </Flex>
           </Flex>
-        </ThemeProvider>
+       
       ) : (
-        <ThemeProvider>
           <Flex direction="column" justify="center" paddingBottom="20%">
             <Flex alignItems="center" justify="center">
               <SeekerCard seeker={items[0]} />
@@ -96,9 +99,9 @@ const HomePage = props => {
               <DenyButton buttonHandler={buttonHandler} variantColor="red"></DenyButton>
             </Flex>
           </Flex>
-        </ThemeProvider>
       )}
     </div>
+    </Box>
   ) //end return
 } //end function
 

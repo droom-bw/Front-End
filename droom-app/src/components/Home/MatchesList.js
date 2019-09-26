@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {connect} from "react-redux"
 import styled from "styled-components";
-import { Stack, Box, Heading, Text, Box, Flex } from "@chakra-ui/core";
+import { Stack, Box, Heading, Text, Flex } from "@chakra-ui/core";
 import CompanyCard from "./CompanyCard";
 import SeekerCard from "./SeekerCard";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
@@ -59,7 +59,7 @@ function MatchList(props) {
   }},[])
 
   return (
-   <div> 
+   <Box height='100vh'> 
     <div>
    { props.user.type ==='seeker' ? (
    
@@ -73,6 +73,7 @@ function MatchList(props) {
     })
    )}
    </div>
+   </Box>
   );
 }
 

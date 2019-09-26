@@ -26,7 +26,7 @@ const CompanyCard = ({company}) => {
         borderRadius="md"
         borderColor="gray.200"
         padding="3%"
-        backgroundColor="gray.200"
+        backgroundColor="#F2F2F2"
       >
         <Flex direction="column" wrap="wrap" align="center">
           <Heading size="lg" whiteSpace="pre-line" wordBreak="break-word">
