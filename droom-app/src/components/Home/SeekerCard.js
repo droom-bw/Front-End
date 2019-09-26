@@ -12,54 +12,33 @@ import {
   ThemeProvider
 } from "@chakra-ui/core"
 
-export default function SeekerCard({data}) {
-  console.log(`SeekerData: `, data);
+export default function SeekerCard(props) {
+  console.log(props)
+  const {name, email, location, resume} = props.seeker
+  
   return (
     <ThemeProvider>
+    {props.seeker ? (
       <Box
         margin="2% auto"
         width="70%"
         border="2px"
         borderRadius="md"
-        borderColor="gray.200"
+        borderColor="#F2F2F2"
         padding="3%"
       >
         <Flex direction="column" wrap="wrap" align="center">
           <Heading size="lg" whiteSpace="pre-line" wordBreak="break-word">
-            {data.name}
+            {name}
           </Heading>
           <Text whiteSpace="pre-line" wordBreak="break-word">
-            {data.email}
+            {email}
+          </Text>
+          <Text whiteSpace="pre-line" wordBreak="break-word">
+            {location}
           </Text>
         </Flex>
         <Accordion defaultIndex={[0]} allowMultiple>
-          <AccordionItem>
-            <AccordionHeader justifyContent="center">
-              <Box>Applicant</Box>
-              <AccordionIcon />
-            </AccordionHeader>
-            <AccordionPanel>{data.name}</AccordionPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionHeader justifyContent="center">
-              <Box>Location</Box>
-              <AccordionIcon />
-            </AccordionHeader>
-            <AccordionPanel whiteSpace="pre-line" wordBreak="break-word">
-              {data.location}
-            </AccordionPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionHeader justifyContent="center">
-              <Box>Email</Box>
-              <AccordionIcon />
-            </AccordionHeader>
-            <AccordionPanel>
-              <Text whiteSpace="pre-line" wordBreak="break-word">
-                {data.email}
-              </Text>
-            </AccordionPanel>
-          </AccordionItem>
           <AccordionItem>
             <AccordionHeader justifyContent="center">
               <Box>Resume</Box>
@@ -67,12 +46,14 @@ export default function SeekerCard({data}) {
             </AccordionHeader>
             <AccordionPanel>
               <Text whiteSpace="pre-line" wordBreak="break-word">
-                {data.resume}
+                {resume}
               </Text>
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
       </Box>
+    ) : (<p>Loading...</p>)} 
     </ThemeProvider>
+    
   )
 }

@@ -1,24 +1,38 @@
 import React from "react"
+import { connect } from "react-redux"
 import CompanyProfile from "./CompanyProfile"
 import SeekerProfile from "./SeekerProfile"
-
-const Profile = (props) => {
-  const fakeState = {isSeeker:false};
-
-
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  Input,
+  Box,
+  Heading, 
+  Button
+} from "@chakra-ui/core";
+const Profile = props => {
   return (
+    <Box height="100vh"> 
     <div className="Profile">
-      {fakeState.isSeeker ? 
-      (
-        <SeekerProfile />
-      ) : 
+      {props.user.type === "seeker" ? 
       
-      (
-
-        <CompanyProfile />
-      )}
+      <SeekerProfile/> : 
+      
+      <CompanyProfile/>}
     </div>
-  );
+    </Box>
+  )
 }
 
-export default Profile
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  {}
+)(Profile)
