@@ -12,6 +12,7 @@ import { companies, seekers } from "../../data"
 const HomePage = props => {
   const [items, setItems] = useState([])
 
+  //DO WE WANT TO SHOW JOBS OR COMPANIES HERE???????????????????
   useEffect(() => {
     let dataString = ""
     props.user.seeker ? (dataString = "seekers") : (dataString = "companies")
