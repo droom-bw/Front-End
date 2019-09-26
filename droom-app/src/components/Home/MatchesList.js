@@ -61,6 +61,7 @@ function MatchList(props) {
   return (
    <Box height='100vh'> 
     <div>
+    <Heading>Your Matches</Heading>
    { props.user.type ==='seeker' ? (
    
    
