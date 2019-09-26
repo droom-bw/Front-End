@@ -8,11 +8,12 @@ import {
   REGISTER_SEEKER_START,
   REGISTER_SEEKER_SUCCESS,
   REGISTER_SEEKER_FAILURE,
-  LOGOUT
+  LOGOUT,
+  PAGE_RELOAD
 } from "../actions"
 
 const initialState = {
-  user: localStorage.getItem("user") || {},
+  user: JSON.parse(localStorage.getItem("user")) || {},
   matches: [],
   isLoggedIn: localStorage.getItem("token") ? true : false,
   isLoading: false
@@ -49,6 +50,16 @@ export const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggedIn: false
+      }
+
+    case PAGE_RELOAD:
+      const localUser = JSON.parse(localStorage.getItem("user"))
+      return {
+        ...state,
+        user: {
+          ...localUser,
+          type: state.user.hasOwnProperty("resume") ? "seeker" : "company"
+        }
       }
 
     default:
