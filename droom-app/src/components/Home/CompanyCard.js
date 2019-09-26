@@ -16,6 +16,8 @@ import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core"
 const CompanyCard = (props) => {
   console.log("Company Card", props);
   return (
+    <ThemeProvider>
+      {props.data != undefined ? (
       <Box
         margin="2% auto"
         width="70%"
@@ -63,6 +65,8 @@ const CompanyCard = (props) => {
           </AccordionItem>
         </Accordion>
       </Box>
+      ) : (<p>Loading...</p>)}
+    </ThemeProvider>
   )
 }
 export default CompanyCard
