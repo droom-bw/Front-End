@@ -6,7 +6,7 @@ import { addMatch } from "../../store/actions"
 
 const MatchButton = props => {
   return (
-    <IconButton onClick={props.buttonHandler} name="check" icon="check" />
+    <IconButton onClick={()=>props.buttonHandler("match")} icon="check" />
   )
 }
 

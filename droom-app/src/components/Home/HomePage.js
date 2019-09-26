@@ -24,10 +24,10 @@ const HomePage = props => {
       .catch(error => console.log(error))
   }, [])
 
-  const buttonHandler = e => {
+  const buttonHandler = (value) => {
     //move item from front of items to the end
     console.log(items)
-    console.log(e.target)
+    console.log(value);
     const firstItem = items[0]
     setItems([...items.slice(1), firstItem])
   }
