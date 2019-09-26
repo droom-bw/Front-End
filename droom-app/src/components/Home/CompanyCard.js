@@ -13,8 +13,8 @@ import {
 } from "@chakra-ui/core"
 import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core"
 
-const CompanyCard = ({data}) => {
-
+const CompanyCard = (props) => {
+  console.log("Company Card", props);
   return (
       <Box
         margin="2% auto"
@@ -27,10 +27,10 @@ const CompanyCard = ({data}) => {
       >
         <Flex direction="column" wrap="wrap" align="center">
           <Heading size="lg" whiteSpace="pre-line" wordBreak="break-word">
-            {data.name}
+            {props.name}
           </Heading>
           <Text whiteSpace="pre-line" wordBreak="break-word">
-            {data.description}
+            {props.description}
           </Text>
         </Flex>
         <Accordion defaultIndex={[0]} allowMultiple>
@@ -39,7 +39,7 @@ const CompanyCard = ({data}) => {
               <Box>Job Title</Box>
               <AccordionIcon />
             </AccordionHeader>
-            <AccordionPanel>{data.job.title}</AccordionPanel>
+            <AccordionPanel>{props.job.title}</AccordionPanel>
           </AccordionItem>
           <AccordionItem>
             <AccordionHeader justifyContent="center">
@@ -47,7 +47,7 @@ const CompanyCard = ({data}) => {
               <AccordionIcon />
             </AccordionHeader>
             <AccordionPanel whiteSpace="pre-line" wordBreak="break-word">
-              ${data.job.salary}
+              ${props.job.salary}
             </AccordionPanel>
           </AccordionItem>
           <AccordionItem>
@@ -57,7 +57,7 @@ const CompanyCard = ({data}) => {
             </AccordionHeader>
             <AccordionPanel>
               <Text whiteSpace="pre-line" wordBreak="break-word">
-                {data.job.description}
+                {props.job.description}
               </Text>
             </AccordionPanel>
           </AccordionItem>

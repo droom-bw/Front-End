@@ -16,13 +16,16 @@ const HomePage = props => {
   //DO WE WANT TO SHOW JOBS OR COMPANIES HERE???????????????????
   useEffect(() => {
     let dataString = ""
-    props.user.type === "seekers"
-      ? (dataString = "seekers")
-      : (dataString = "companies")
+    props.user.type === "seeker"
+      ? (dataString = "companies")
+      : (dataString = "seekers/all")
 
     axiosWithAuth()
       .get(`/${dataString}`)
       .then(res => {
+        console.log(dataString);
+        console.log("home page props are ", props);
+        console.log("home page resonse from get request", res);
         setItems(res.data)
       })
       .catch(error => console.log(error))
@@ -47,7 +50,7 @@ const HomePage = props => {
         <ThemeProvider>
           <Flex direction="column" justify="center" paddingBottom="20%">
             <Flex alignItems="center" justify="center">
-              <CompanyCard data={companies[0]} />
+              <CompanyCard data={items[0]} />
             </Flex>
             <Flex
               alignItems="center"

@@ -11,11 +11,14 @@ import {
   AccordionIcon,
   ThemeProvider
 } from "@chakra-ui/core"
+import { logValidationWarning } from "jest-validate/build/utils";
 
-export default function SeekerCard({data}) {
-  console.log(`SeekerData: `, data);
+export default function SeekerCard(props) {
+  console.log(`SeekerData: `, props);
+  
   return (
     <ThemeProvider>
+    {props.data !== undefined ? (
       <Box
         margin="2% auto"
         width="70%"
@@ -26,10 +29,10 @@ export default function SeekerCard({data}) {
       >
         <Flex direction="column" wrap="wrap" align="center">
           <Heading size="lg" whiteSpace="pre-line" wordBreak="break-word">
-            {data.name}
+            {props.data.name}
           </Heading>
           <Text whiteSpace="pre-line" wordBreak="break-word">
-            {data.email}
+            {props.data.email}
           </Text>
         </Flex>
         <Accordion defaultIndex={[0]} allowMultiple>
@@ -38,7 +41,7 @@ export default function SeekerCard({data}) {
               <Box>Applicant</Box>
               <AccordionIcon />
             </AccordionHeader>
-            <AccordionPanel>{data.name}</AccordionPanel>
+            <AccordionPanel>{props.data.name}</AccordionPanel>
           </AccordionItem>
           <AccordionItem>
             <AccordionHeader justifyContent="center">
@@ -46,7 +49,7 @@ export default function SeekerCard({data}) {
               <AccordionIcon />
             </AccordionHeader>
             <AccordionPanel whiteSpace="pre-line" wordBreak="break-word">
-              {data.location}
+              {props.data.location}
             </AccordionPanel>
           </AccordionItem>
           <AccordionItem>
@@ -56,7 +59,7 @@ export default function SeekerCard({data}) {
             </AccordionHeader>
             <AccordionPanel>
               <Text whiteSpace="pre-line" wordBreak="break-word">
-                {data.email}
+                {props.data.email}
               </Text>
             </AccordionPanel>
           </AccordionItem>
@@ -67,12 +70,14 @@ export default function SeekerCard({data}) {
             </AccordionHeader>
             <AccordionPanel>
               <Text whiteSpace="pre-line" wordBreak="break-word">
-                {data.resume}
+                {props.data.resume}
               </Text>
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
       </Box>
+    ) : (<p>Loading...</p>)} 
     </ThemeProvider>
+    
   )
 }
