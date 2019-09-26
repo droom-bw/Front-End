@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { pageReload } from "../../store/actions"
 import CompanyCard from "./CompanyCard"
 import SeekerCard from "./SeekerCard"
-import { ThemeProvider, Flex } from "@chakra-ui/core"
+import { ThemeProvider, Flex, Box } from "@chakra-ui/core"
 import MatchButton from "./MatchButton"
 import DenyButton from "./DenyButton"
 import { axiosWithAuth } from "../../utils/axiosWithAuth"
@@ -11,18 +11,30 @@ import { axiosWithAuth } from "../../utils/axiosWithAuth"
 import { companies, seekers } from "../../data"
 
 const HomePage = props => {
-  const [items, setItems] = useState([])
-
+  const [items, setItems] = useState([{
+    name: "Loading",
+    email: "Loading",
+    resume: "Loading",
+    location: "Loading"
+  }])
+  const fakeJobs = [
+    {}
+  ]
+  const [loading, setLoading] = useState(true);
+  
   //DO WE WANT TO SHOW JOBS OR COMPANIES HERE???????????????????
   useEffect(() => {
     let dataString = ""
-    props.user.type === "seekers"
-      ? (dataString = "seekers")
-      : (dataString = "companies")
+    props.user.type === "seeker"
+      ? (dataString = "companies")
+      : (dataString = "seekers/all")
 
     axiosWithAuth()
       .get(`/${dataString}`)
       .then(res => {
+        console.log(dataString);
+        console.log("home page props are ", props);
+        console.log("home page resonse from get request", res);
         setItems(res.data)
       })
       .catch(error => console.log(error))
@@ -34,20 +46,32 @@ const HomePage = props => {
 
   const buttonHandler = (value) => {
     //move item from front of items to the end
-    console.log(items)
-    console.log(value);
     const firstItem = items[0]
     setItems([...items.slice(1), firstItem])
+  
+    if (props.user.type === "seeker") {
+      ///FAKE JOB ID
+      const jobID = 2;
+    
+      axiosWithAuth().post(`seekers/seekerID/${props.user.id}/${jobID}`)
+      .then(res => {
+        console.log(`Post request home page`, res);
+        //do nothing in state
+      })
+      .catch(error => console.log(error));
+    }
   }
-
+  
+  console.log("ITEMS", items[0])
   return (
+   <Box height="100vh"> 
     <div className="HomePage">
       {props.isLoading && <p>Loading...</p>}
       {!props.user.type === "seeker" ? (
-        <ThemeProvider>
+
           <Flex direction="column" justify="center" paddingBottom="20%">
             <Flex alignItems="center" justify="center">
-              <CompanyCard data={companies[0]} />
+              <CompanyCard data={items[0]} />
             </Flex>
             <Flex
               alignItems="center"
@@ -55,16 +79,15 @@ const HomePage = props => {
               margin="3%"
               padding="2%"
             >
-              <MatchButton buttonHandler={buttonHandler}></MatchButton>
-              <DenyButton buttonHandler={buttonHandler}></DenyButton>
+              <MatchButton buttonHandler={buttonHandler} variantColor="green"></MatchButton>
+              <DenyButton buttonHandler={buttonHandler} variantColor="red"></DenyButton>
             </Flex>
           </Flex>
-        </ThemeProvider>
+       
       ) : (
-        <ThemeProvider>
           <Flex direction="column" justify="center" paddingBottom="20%">
             <Flex alignItems="center" justify="center">
-              <SeekerCard data={items[0]} />
+              <SeekerCard seeker={items[0]} />
             </Flex>
             <Flex
               alignItems="center"
@@ -72,13 +95,13 @@ const HomePage = props => {
               margin="3%"
               padding="2%"
             >
-              <MatchButton buttonHandler={buttonHandler}></MatchButton>
-              <DenyButton buttonHandler={buttonHandler}></DenyButton>
+              <MatchButton buttonHandler={buttonHandler} variantColor="green"></MatchButton>
+              <DenyButton buttonHandler={buttonHandler} variantColor="red"></DenyButton>
             </Flex>
           </Flex>
-        </ThemeProvider>
       )}
     </div>
+    </Box>
   ) //end return
 } //end function
 

@@ -106,3 +106,9 @@ export const PAGE_RELOAD = "PAGE_RELOAD"
 export const pageReload = () => dispatch => {
   dispatch({ type: PAGE_RELOAD })
 }
+
+export const UPDATE_SEEKER_PROFILE = "UPDATE_SEEKER_PROFILE";
+
+export const updateSeekerProfile = (profile, ownProps) => dispatch => {
+  dispatch({type: UPDATE_SEEKER_PROFILE, payload: profile})
+} 

@@ -32,7 +32,7 @@ const LoginComponent = props => {
   }
   //() => {handleSubmit().then(() => {props.history.push("/home")})}
   return (
-    <>
+    <Box height='100vh'>
       <Box width="80%" margin="auto">
         <form onSubmit={handleSumbit}>
           <FormControl>
@@ -57,7 +57,7 @@ const LoginComponent = props => {
               onChange={handleChange}
               value={creds.password}
             />
-            <Button margin="3%" type="submit" variantColor="blue">
+            <Button margin="3%" type="submit" variantColor='grey' variantColor="blue">
               Submit
             </Button>
           </FormControl>
@@ -73,7 +73,7 @@ const LoginComponent = props => {
           Register as Seeker
         </Link>
       </p>
-    </>
+    </Box>
   )
 }
 const mapStateToProps = state => {

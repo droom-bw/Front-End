@@ -31,9 +31,9 @@ function NavBar(props) {
     justify-content: space-around;
     align-items: center;
     /* margin: 0 auto; */
-    padding: 0 0 40px;
-    background: white;
-    height: 15vh;
+     margin-bottom:2%;
+    background: #F2F2F2;
+    
     border-bottom: 1px solid #50514f;
   `
 
@@ -55,7 +55,7 @@ function NavBar(props) {
         />
       </ImgCont>
       <Menu size="100px">
-        <MenuButton as={Button} rightIcon="chevron-down" size="sm">
+        <MenuButton as={Button} rightIcon="chevron-down" size="sm" variantColor="blue" variant="outline">
           &ensp;Menu
         </MenuButton>
 
@@ -79,13 +79,18 @@ function NavBar(props) {
             </MenuItem>
           </Link>
 
+          {props.user.type === "company" && <Link as={RouterLink} to="/jobs">
+            <MenuItem>
+              <Icon name="email" />
+              &ensp;Jobs
+            </MenuItem>
+          </Link>}
+
           {props.isLoggedIn ? (
             <Link as={RouterLink} onClick={logout} to="/login">
               <MenuItem>
-                <MenuItem>
                   <Icon name="triangle-down" />
                   &ensp;Log Out
-                </MenuItem>
               </MenuItem>
             </Link>
           ) : (
@@ -109,7 +114,8 @@ import {Link} from "@chakra-ui/core"
 
 const mapStateToProps = state => {
   return {
-    isLoggedIn: state.isLoggedIn
+    isLoggedIn: state.isLoggedIn,
+    user: state.user
   }
 }
 
