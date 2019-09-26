@@ -53,8 +53,8 @@ const DisplayJobs = (props) => {
     }
 
     return(
-        <div>
-            <Button margin="2%" variantColor="green">Add Job</Button>
+        <Box height='100vh'>
+            <Button margin="2%" >Add Job</Button>
             <Box width="80%" margin="auto">
                 <form onSubmit={handleSubmit}>
                     <FormControl>
@@ -77,7 +77,7 @@ const DisplayJobs = (props) => {
                     </FormControl>
                 </form>
             </Box>  
-        </div>
+        </Box>
     )
 }
 
