@@ -2,8 +2,8 @@ import React from "react"
 import CompanyProfile from "./CompanyProfile"
 import SeekerProfile from "./SeekerProfile"
 
-const Profile = () => {
-  const fakeState = {isSeeker:true};
+const Profile = (props) => {
+  const fakeState = {isSeeker:false};
 
 
   return (
