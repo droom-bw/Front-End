@@ -100,3 +100,9 @@ export const logout = () => dispatch => {
   localStorage.removeItem("user")
   document.location.replace("/login")
 }
+
+export const PAGE_RELOAD = "PAGE_RELOAD"
+
+export const pageReload = () => dispatch => {
+  dispatch({ type: PAGE_RELOAD })
+}
