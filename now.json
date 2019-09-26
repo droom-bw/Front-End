@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "name": "droom-app",
+    "builds": [{ "src": "droom-app/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+    "routes": [
+        { "src": "/(.*)", "dest": "droom-app/$1" }
+    ]
+ }
