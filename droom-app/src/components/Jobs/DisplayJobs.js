@@ -58,7 +58,7 @@ const DisplayJobs = (props) => {
             <Box width="80%" margin="auto">
                 <form onSubmit={handleSubmit}>
                     <FormControl>
-                    <Heading>Job!</Heading>
+                    <Heading>Add a Job</Heading>
 
                     <FormLabel htmlFor="title">Title</FormLabel>
                     <Input type="title" id="title" value={job.title} onChange={handleChange} />
